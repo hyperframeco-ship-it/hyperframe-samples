@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smoke Test Plumbing Co | Joliet, IL Plumber</title>
+<style>
+  :root {
+    --primary: #1a4a7a;
+    --primary-dark: #0f2d4d;
+    --accent: #e8851a;
+    --accent-dark: #c46d0e;
+    --neutral: #f4f6f9;
+    --neutral-dark: #e1e6ed;
+    --text: #1c2b3a;
+    --text-light: #5a6a7a;
+    --white: #ffffff;
+    --shadow: 0 4px 24px rgba(26,74,122,0.13);
+    --radius: 10px;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: var(--font);
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  #navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--primary-dark);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  }
+
+  .nav-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--white);
+  }
+
+  .nav-logo-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .nav-logo-text span:first-child {
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+    color: var(--white);
+  }
+
+  .nav-logo-text span:last-child {
+    font-size: 0.72rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.82);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--white);
+    background: rgba(255,255,255,0.1);
+  }
+
+  .btn-nav-call {
+    background: var(--accent);
+    color: var(--white) !important;
+    font-weight: 700 !important;
+    padding: 9px 20px !important;
+    border-radius: 50px !important;
+    transition: background 0.2s, transform 0.15s !important;
+    white-space: nowrap;
+  }
+
+  .btn-nav-call:hover {
+    background: var(--accent-dark) !important;
+    transform: translateY(-1px);
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 26px;
+    height: 2.5px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 55%, #1e5c8c 100%);
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.07;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.6) 40px, rgba(255,255,255,0.6) 41px),
+      repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.6) 40px, rgba(255,255,255,0.6) 41px);
+  }
+
+  .hero-pipe-accent {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 45%;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 80px 24px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(232,133,26,0.18);
+    border: 1px solid rgba(232,133,26,0.45);
+    color: #f0a94a;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+
+  .hero-headline {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.12;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-headline .accent-word {
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.08rem;
+    color: rgba(255,255,255,0.78);
+    max-width: 480px;
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 44px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.05rem;
+    padding: 15px 32px;
+    border-radius: 50px;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 6px 24px rgba(232,133,26,0.4);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(232,133,26,0.5);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px 28px;
+    border-radius: 50px;
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.6);
+    transform: translateY(-2px);
+  }
+
+  .hero-trust-row {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+
+  .trust-icon {
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    flex-shrink: 0;
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-graphic {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  /* ─── SECTION COMMON ─── */
+  section { padding: 90px 24px; }
+
+  .section-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-block;
+    background: rgba(26,74,122,0.08);
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(26,74,122,0.15);
+  }
+
+  .section-title {
+    font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+  }
+
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    max-width: 580px;
+    line-height: 1.7;
+  }
+
+  /* ─── ABOUT ─── */
+  #about {
+    background: var(--neutral);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    margin-top: 16px;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-graphic-wrap {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: 20px;
+    padding: 48px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .about-graphic-wrap::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 160px;
+    height: 160px;
+    background: rgba(232,133,26,0.15);
+    border-radius: 50%;
+  }
+
+  .about-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 8px;
+  }
+
+  .about-stat {
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .about-stat .num {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .about-stat .label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.78);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .about-content p {
+    color: var(--text-light);
+    margin-bottom: 18px;
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+
+  .about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .about-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .feature-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--white); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .service-card {
+    background: var(--neutral);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    border: 2px solid transparent;
+    transition: border-color 0.25s, transform 0.22s, box-shadow 0.22s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+    border-radius: 0 0 var(--radius) var(--radius);
+  }
+
+  .service-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+  }
+
+  .service-card:hover::after {
+    transform: scaleX(1);
+  }
+
+  .service-icon-wrap {
+    width: 58px;
+    height: 58px;
+    background: linear-gradient(135deg, var(--primary), #2166a8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #testimonials::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(255,255,255,0.02) 60px, rgba(255,255,255,0.02) 61px);
+  }
+
+  #testimonials .section-label {
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.9);
+    border-color: rgba(255,255,255,0.2);
+  }
+
+  #testimonials .section-title { color: var(--white); }
+
+  #testimonials .section-sub { color: rgba(255,255,255,0.7); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+    position: relative;
+  }
+
+  .testi-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    backdrop-filter: blur(8px);
+    transition: transform 0.22s, background 0.22s;
+  }
+
+  .testi-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.13);
+  }
+
+  .testi-stars {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+  }
+
+  .testi-quote {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .testi-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: var(--white);
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .testi-name {
+    font-weight: 700;
+    color: var(--white);
+    font-size: 0.92rem;
+    line-height: 1.2;
+  }
+
+  .testi-location {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+    margin-top: 2px;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--neutral); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 56px;
+    margin-top: 48px;
+  }
+
+  .contact-info h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 36px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .contact-item-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--primary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+
+  .contact-item-text strong {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 2px;
+  }
+
+  .contact-item-text a,
+  .contact-item-text span {
+    font-size: 0.97rem;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .contact-item-text a:hover { color: var(--primary); }
+
+  .hours-box {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    border: 1px solid var(--neutral-dark);
+  }
+
+  .hours-box h4 {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 14px;
+  }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--neutral-dark);
+    color: var(--text);
+  }
+
+  .hours-row:last-child { border-bottom: none; }
+
+  .hours-row .day { font-weight: 600; }
+
+  .hours-row .time { color: var(--text-light); }
+
+  .hours-row.available .time { color: #1a7a4a; font-weight: 700; }
+
+  /* contact form */
+  .contact-form-wrap {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 40px 36px;
+    box-shadow: var(--shadow);
+  }
+
+  .contact-form-wrap h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.04em;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    border: 2px solid var(--neutral-dark);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-family: var(--font);
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    width: 100%;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(26,74,122,0.1);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 110px; }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    padding: 15px 32px;
+    font-family: var(--font);
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 4px;
+  }
+
+  .btn-submit:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--primary-dark);
+    padding: 48px 24px 28px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .footer-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .footer-brand .nav-logo {
+    margin-bottom: 14px;
+    display: inline-flex;
+  }
+
+  .footer-tagline {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    max-width: 300px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col ul li { margin-bottom: 10px; }
+
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .footer-bottom p {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .footer-bottom a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--primary-dark); padding: 16px 24px 24px; gap: 4px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+    #navbar { position: sticky; }
+
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero-ctas { justify-content: center; }
+    .hero-trust-row { justify-content: center; }
+    .hero-visual { order: -1; }
+    .hero-graphic { max-width: 280px; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .footer-top > div:first-child { grid-column: 1/-1; }
+  }
+
+  @media (max-width: 480px) {
+    section { padding: 64px 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .about-features { grid-template-columns: 1fr; }
+    .about-stat-grid { grid-template-columns: 1fr 1fr; }
+    .hero-graphic { max-width: 220px; }
+    .contact-form-wrap { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<header>
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Smoke Test Plumbing Co Home">
+        <svg class="nav-logo-icon" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <circle cx="19" cy="19" r="19" fill="rgba(255,255,255,0.1)"/>
+          <rect x="11" y="17" width="16" height="4" rx="2" fill="#e8851a"/>
+          <rect x="17" y="10" width="4" height="16" rx="2" fill="white"/>
+          <circle cx="19" cy="19" r="3" fill="#e8851a"/>
+          <path d="M7 19h4M27 19h4M19 7v4M19 27v4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="nav-logo-text">
+          <span>Smoke Test Plumbing</span>
+          <span>Joliet, IL</span>
+        </div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="tel:8155550123" class="btn-nav-call">📞 Call Now</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ─── HERO ─── -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-pattern" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge" aria-label="Service area">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5.5" stroke="#f0a94a"/><path d="M6 3v3l2 1.5" stroke="#f0a94a" stroke-linecap="round"/></svg>
+        Serving Joliet &amp; Will County Since 2009
+      </div>
+      <h1 class="hero-headline">
+        Joliet's Most Trusted<br>
+        <span class="accent-word">Plumbing Experts</span><br>
+        — On Time, Every Time
+      </h1>
+      <p class="hero-sub">
+        From emergency leaks at midnight to full bathroom remodels, Smoke Test Plumbing Co has kept Joliet homes dry and flowing for over 15 years. Licensed, insured, and ready 24/7.
+      </p>
+      <div class="hero-ctas">
+        <a href="tel:8155550123" class="btn-primary" aria-label="Call Smoke Test Plumbing Co">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 3h4l1.5 4-2 1.5a11 11 0 005 5L13 11l4 1.5V17a2 2 0 01-2 2A15 15 0 012 5a2 2 0 012-2z" fill="white"/></svg>
+          (815) 555-0123
+        </a>
+        <a href="#services" class="btn-secondary">
+          View Services
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+      <div class="hero-trust-row">
+        <div class="trust-item"><div class="trust-icon">✓</div>Licensed &amp; Insured</div>
+        <div class="trust-item"><div class="trust-icon">✓</div>24/7 Emergency Service</div>
+        <div class="trust-item"><div class="trust-icon">✓</div>Free Estimates</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg class="hero-graphic" viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Plumbing illustration">
+        <!-- background shape -->
+        <circle cx="210" cy="190" r="170" fill="rgba(255,255,255,0.04)"/>
+        <circle cx="210" cy="190" r="130" fill="rgba(255,255,255,0.06)"/>
+        <!-- main pipe horizontal -->
+        <rect x="60" y="175" width="300" height="30" rx="15" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+        <!-- pipe vertical left -->
+        <rect x="105" y="105" width="30" height="90" rx="15" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+        <!-- pipe vertical right -->
+        <rect x="285" y="185" width="30" height="90" rx="15" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+        <!-- valve left -->
+        <circle cx="120" cy="105" r="22" fill="#1a4a7a" stroke="#e8851a" stroke-width="3"/>
+        <rect x="110" y="103" width="20" height="4" rx="2" fill="#e8851a"/>
+        <rect x="118" y="95" width="4" height="20" rx="2" fill="#e8851a"/>
+        <!-- valve right -->
+        <circle cx="300" cy="275" r="22" fill="#1a4a7a" stroke="#e8851a" stroke-width="3"/>
+        <rect x="290" y="273" width="20" height="4" rx="2" fill="#e8851a"/>
+        <rect x="298" y="265" width="4" height="20" rx="2" fill="#e8851a"/>
+        <!-- water drops -->
+        <ellipse cx="300" cy="315" rx="6" ry="9" fill="rgba(100,180,255,0.7)"/>
+        <ellipse cx="312" cy="325" rx="4" ry="6" fill="rgba(100,180,255,0.5)"/>
+        <!-- wrench icon -->
+        <path d="M180 210 L240 150" stroke="white" stroke-width="8" stroke-linecap="round"/>
+        <circle cx="248" cy="142" r="16" fill="#e8851a"/>
+        <circle cx="248" cy="142" r="8" fill="#c46d0e"/>
+        <!-- flow arrows -->
+        <path d="M145 190 L165 190" stroke="#e8851a" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+        <path d="M200 190 L220 190" stroke="#e8851a" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M245 190 L265 190" stroke="#e8851a" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- shine on pipe -->
+        <rect x="60" y="178" width="300" height="6" rx="3" fill="rgba(255,255,255,0.12)"/>
+        <!-- label -->
+        <rect x="148" y="235" width="124" height="36" rx="10" fill="rgba(232,133,26,0.85)"/>
+        <text x="210" y="259" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="-apple-system,sans-serif">Smoke Test Plumbing</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section id="about" aria-labelledby="about-heading">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-graphic-wrap">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true" style="margin-bottom:20px;">
+            <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.1)"/>
+            <path d="M20 44V32a12 12 0 1124 0v12" stroke="#e8851a" stroke-width="3" stroke-linecap="round"/>
+            <rect x="16" y="42" width="32" height="6" rx="3" fill="white"/>
+            <circle cx="32" cy="32" r="4" fill="#e8851a"/>
+          </svg>
+          <p style="color:rgba(255,255,255,0.85);font-size:1rem;line-height:1.7;margin-bottom:28px;">Locally owned and operated right here in Joliet. We're not a franchise — we're your neighbors.</p>
+          <div class="about-stat-grid">
+            <div class="about-stat"><span class="num">15+</span><span class="label">Years Serving Joliet</span></div>
+            <div class="about-stat"><span class="num">2,400+</span><span class="label">Jobs Completed</span></div>
+            <div class="about-stat"><span class="num">24/7</span><span class="label">Emergency Service</span></div>
+            <div class="about-stat"><span class="num">100%</span><span class="label">Licensed &amp; Insured</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title" id="about-heading">Real Plumbers.<br>Real Results.</h2>
+        <p>My name is Dave Kowalski, and I started Smoke Test Plumbing Co back in 2009 out of a pickup truck and a whole lot of drive. After 10 years working for other plumbing companies across Will County, I knew there was a better way to do things — honest pricing, no upsells, and actually showing up when we say we will.</p>
+        <p>Today our crew of licensed plumbers covers all of Joliet, Plainfield, Lockport, and the surrounding communities. Whether you're dealing with a burst pipe at 2 AM or planning a kitchen renovation, we treat your home like it's our own.</p>
+        <div class="about-features">
+          <div class="about-feature"><span class="feature-dot"></span>Upfront, flat-rate pricing</div>
+          <div class="about-feature"><span class="feature-dot"></span>No surprise add-ons</div>
+          <div class="about-feature"><span class="feature-dot"></span>Background-checked techs</div>
+          <div class="about-feature"><span class="feature-dot"></span>Satisfaction guarantee</div>
+          <div class="about-feature"><span class="feature-dot"></span>Fully stocked trucks</div>
+          <div class="about-feature"><span class="feature-dot"></span>IL Master Plumber #MP-48221</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services" aria-labelledby="services-heading">
+  <div class="section-inner">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title" id="services-heading">Full-Service Plumbing<br>For Joliet Homes &amp; Businesses</h2>
+    <p class="section-sub">From minor repairs to major installations, we handle it all. Every job comes with a written warranty and our no-mess guarantee.</p>
+    <div class="services-grid">
+
+      <article class="service-card">
+        <div class="service-icon-wrap" aria-hidden="true">🚨</div>
+        <h3>24/7 Emergency Plumbing</h3>
+        <p>Burst pipe, backed-up sewer, or no hot water at midnight? We answer every call and can typically have a tech at your door within 60 minutes anywhere in Joliet.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon-wrap" aria-hidden="true">🔧</div>
+        <h3>Drain Cleaning &amp; Unclogging</h3>
+        <p>Slow drains and blockages don't stand a chance against our professional hydro-jetting and snake equipment. We clear kitchen, bathroom, and main sewer lines fast.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon-wrap" aria-hidden="true">🚿</div>
+        <h3>Water Heater Installation</h3>
+        <p>We install, repair, and replace traditional tank and tankless water heaters. Same-day service available for most units — so you're never stuck with a cold shower.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon-wrap" aria-hidden="true">🏠</div>
+        <h3>Bathroom &amp; Kitchen Remodels</h3>
+        <p>Relocating a sink, adding a new bathroom, or roughing in fixtures for your kitchen renovation? Our remodel plumbing is clean, code-compliant, and built to last.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon-wrap" aria-hidden="true">💧</div>
+        <h3>Leak Detection &amp; Repair</h3>
+        <p>Hidden slab leaks and pinhole leaks can cost thousands if ignored. We use non-invasive detection equipment to find leaks fast and repair them right the first time.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon-wrap" aria-hidden="true">🔩</div>
+        <h3>Sewer Line Services</h3>
+        <p>Video camera inspections, sewer line repairs, and full replacements. We diagnose the problem before we dig — saving you money and keeping your yard intact.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section id="testimonials" aria-labelledby="testimonials-heading">
+  <div class="section-inner">
+    <div class="section-label">Customer Reviews</div>
+    <h2 class="section-title" id="testimonials-heading">What Joliet Homeowners Say</h2>
+    <p class="section-sub">We let our work — and our customers — do the talking.</p>
+    <div class="testimonials-grid">
+
+      <article class="testi-card">
+        <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testi-quote">"Pipe burst in my basement at 11 PM on a Sunday. Called Smoke Test and Dave had someone here in under an hour. They fixed it cleanly, explained everything, and didn't try to sell me anything I didn't need. I've been recommending them to everyone on my street."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">MR</div>
+          <div>
+            <div class="testi-name">Mike R.</div>
+            <div class="testi-location">Joliet, IL — Verified Customer</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testi-card">
+        <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testi-quote">"Finally a plumber that shows up on time and charges what they quoted. We had our water heater replaced and two bathroom fixtures updated. The crew was respectful, cleaned up perfectly, and the price was very reasonable compared to the other bids I got."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">LT</div>
+          <div>
+            <div class="testi-name">Linda T.</div>
+            <div class="testi-location">Plainfield, IL — Verified Customer</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testi-card">
+        <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testi-quote">"Used Smoke Test for a full bathroom addition in our new build. Their rough-in work was immaculate — the inspector commented on how clean everything was. They were on schedule, communicated daily, and I'll absolutely use them again for our second bath next spring."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">JC</div>
+          <div>
+            <div class="testi-name">Jason C.</div>
+            <div class="testi-location">Lockport, IL — Verified Customer</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact" aria-labelledby="contact-heading">
+  <div class="section-inner">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title" id="contact-heading">Ready to Get Started?</h2>
+    <p class="section-sub">Call us anytime for emergencies, or fill out the form for non-urgent requests and we'll get back to you within a few hours.</p>
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <h3>Contact &amp; Location</h3>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon" aria-hidden="true">📍</div>
+            <div class="contact-item-text">
+              <strong>Address</strong>
+              <span>123 Test St, Joliet, IL 60432</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon" aria-hidden="true">📞</div>
+            <div class="contact-item-text">
+              <strong>Phone</strong>
+              <a href="tel:8155550123">(815) 555-0123</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon" aria-hidden="true">✉️</div>
+            <div class="contact-item-text">
+              <strong>Email</strong>
+              <a href="mailto:smoketest@example.com">smoketest@example.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="hours-box">
+          <h4>Business Hours</h4>
+          <div class="hours-row available"><span class="day">Monday – Friday</span><span class="time">7:00 AM – 6:00 PM</span></div>
+          <div class="hours-row available"><span class="day">Saturday</span><span class="time">8:00 AM – 4:00 PM</span></div>
+          <div class="hours-row"><span class="day">Sunday</span><span class="time">Emergency Calls Only</span></div>
+          <div class="hours-row available"><span class="day">24/7 Emergency Line</span><span class="time">Always Available</span></div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <h3>Send Us a Message</h3>
+        <form action="#" method="post" novalidate aria-label="Contact form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="John" autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Smith" autocomplete="family-name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(815) 000-0000" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service">
+              <option value="">— Select a service —</option>
+              <option>Emergency Plumbing</option>
+              <option>Drain Cleaning</option>
+              <option>Water Heater</option>
+              <option>Bathroom / Kitchen Remodel</option>
+              <option>Leak Detection &amp; Repair</option>
+              <option>Sewer Line Service</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Describe the Issue</label>
+            <textarea id="message" name="message" placeholder="Give us a quick description of what's going on so we can help faster…"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message — We'll Call You Back</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo" aria-label="Smoke Test Plumbing Co Home">
+          <svg class="nav-logo-icon" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+            <circle cx="19" cy="19" r="19" fill="rgba(255,255,255,0.1)"/>
+            <rect x="11" y="17" width="16" height="4" rx="2" fill="#e8851a"/>
+            <rect x="17" y="10" width="4" height="16" rx="2" fill="white"/>
+            <circle cx="19" cy="19" r="3" fill="#e8851a"/>
+            <path d="M7 19h4M27 19h4M19 7v4M19 27v4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="nav-logo-text">
+            <span>Smoke Test Plumbing</span>
+            <span>Joliet, IL</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Honest work. Fair prices. Your Joliet plumber for life. Serving Will County and surrounding communities since 2009.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Emergency Plumbing</a></li>
+          <li><a href="#services">Drain Cleaning</a></li>
+          <li><a href="#services">Water Heater Service</a></li>
+          <li><a href="#services">Remodels</a></li>
+          <li><a href="#services">Leak Detection</a></li>
+          <li><a href="#services">Sewer Lines</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:8155550123">(815) 555-0123</a></li>
+          <li><a href="mailto:smoketest@example.com">smoketest@example.com</a></li>
+          <li><a href="#contact">123 Test St, Joliet, IL 60432</a></li>
+          <li><a href="#contact">Mon–Fri: 7 AM – 6 PM</a></li>
+          <li><a href="#contact">24/7 Emergency Line</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Smoke Test Plumbing Co. All rights reserved.</p>
+      <p>IL Master Plumber License #MP-48221 &nbsp;|&nbsp; Fully Insured &nbsp;|&nbsp; <a href="mailto:smoketest@example.com">smoketest@example.com</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', function() {
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+  // Close nav on link click
+  navLinks.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+  // Smooth active state on nav links
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navAnchorLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  function onScroll() {
+    let current = '';
+    sections.forEach(function(sec) {
+      if (window.scrollY >= sec.offsetTop - 90) current = sec.getAttribute('id');
+    });
+    navAnchorLinks.forEach(function(a) {
+      a.style.color = '';
+      if (a.getAttribute('href') === '#' + current) a.style.color = '#fff';
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>
+</body>
+</html>
