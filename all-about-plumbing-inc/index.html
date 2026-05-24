@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All About Plumbing Inc. — Trusted plumber</title>
+<meta name="description" content="All About Plumbing Inc. provides reliable, fast, and honest plumbing services. Licensed and insured. Call (815) 436-3606.">
+<style>
+  :root {
+    --navy: #0c2440;
+    --blue: #1d6fb8;
+    --blue-light: #4ea3e0;
+    --orange: #ff7a1a;
+    --orange-dark: #e55b00;
+    --bg: #f6f9fc;
+    --ink: #14253b;
+    --muted: #5a6a7d;
+    --line: #e3eaf2;
+    --white: #ffffff;
+    --radius: 14px;
+    --shadow: 0 12px 40px rgba(12,36,64,0.10);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--blue); text-decoration: none; }
+  img, svg { display: block; max-width: 100%; }
+  .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 0;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 800; font-size: 1.2rem; color: var(--navy);
+  }
+  .logo-mark {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    display: grid; place-items: center; color: white; font-size: 18px;
+    box-shadow: 0 4px 12px rgba(29,111,184,0.35);
+  }
+  nav ul { list-style: none; display: flex; gap: 28px; }
+  nav a { color: var(--ink); font-weight: 500; transition: color .2s; }
+  nav a:hover { color: var(--blue); }
+  .call-btn {
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    color: white; padding: 11px 22px; border-radius: 999px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 0 6px 18px rgba(229,91,0,0.32);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .call-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(229,91,0,0.42); color: white; }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(1200px 600px at 80% -20%, rgba(78,163,224,0.35), transparent 60%),
+      linear-gradient(135deg, #0c2440 0%, #1d6fb8 100%);
+    color: white;
+    padding: 110px 0 130px;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(255,255,255,0.06) 0, transparent 35%),
+      radial-gradient(circle at 70% 30%, rgba(255,122,26,0.18) 0, transparent 40%);
+    pointer-events: none;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; position: relative; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    padding: 6px 14px; border-radius: 999px; font-size: .85rem; font-weight: 500;
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1.1; font-weight: 800; letter-spacing: -.02em;
+    margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--orange); }
+  .hero p.lead { font-size: 1.15rem; opacity: .9; max-width: 540px; margin-bottom: 32px; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    color: white; padding: 16px 30px; border-radius: 999px; font-weight: 700;
+    box-shadow: 0 10px 26px rgba(229,91,0,0.45);
+    transition: transform .15s ease;
+  }
+  .btn-primary:hover { transform: translateY(-2px); color: white; }
+  .btn-ghost {
+    color: white; padding: 16px 30px; border-radius: 999px;
+    border: 1.5px solid rgba(255,255,255,0.4); font-weight: 600;
+    transition: background .2s ease;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); color: white; }
+
+  .hero-card {
+    background: white; color: var(--ink); border-radius: 22px;
+    padding: 32px; box-shadow: var(--shadow);
+    position: relative;
+  }
+  .hero-card h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 18px; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .stat .num { font-size: 2rem; font-weight: 800; color: var(--blue); }
+  .stat .lbl { font-size: .85rem; color: var(--muted); }
+  .hero-card ul { list-style: none; margin-top: 22px; border-top: 1px solid var(--line); padding-top: 20px; }
+  .hero-card li { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: .95rem; }
+  .check { color: var(--blue); font-weight: 800; }
+
+  /* Section header */
+  section { padding: 96px 0; }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: .14em;
+    font-size: .8rem; font-weight: 700; color: var(--blue);
+    margin-bottom: 12px;
+  }
+  h2.section-title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.15;
+    color: var(--navy); margin-bottom: 16px; letter-spacing: -.01em;
+  }
+  .section-lead { color: var(--muted); max-width: 640px; font-size: 1.05rem; margin-bottom: 48px; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+  .about-visual {
+    aspect-ratio: 4/5; border-radius: 24px;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255,122,26,0.25), transparent 55%),
+      linear-gradient(160deg, #1d6fb8 0%, #0c2440 100%);
+    position: relative; overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .about-visual::after {
+    content: "🔧"; position: absolute; bottom: 30px; right: 30px;
+    font-size: 5rem; opacity: .25;
+  }
+  .about-visual .float-card {
+    position: absolute; bottom: 24px; left: 24px;
+    background: white; padding: 18px 22px; border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .float-card .ring {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    color: white; display: grid; place-items: center; font-size: 1.2rem;
+  }
+  .float-card strong { display: block; color: var(--navy); font-size: .95rem; }
+  .float-card small { color: var(--muted); }
+  .about p { color: var(--muted); margin-bottom: 16px; font-size: 1.05rem; }
+  .about ul.bullets { list-style: none; margin-top: 20px; }
+  .about .bullets li { padding: 8px 0; padding-left: 28px; position: relative; color: var(--ink); }
+  .about .bullets li::before {
+    content: "✓"; position: absolute; left: 0; top: 8px;
+    color: var(--blue); font-weight: 800;
+  }
+
+  /* Services */
+  .services { background: white; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card {
+    background: white; padding: 32px 28px; border-radius: 16px;
+    border: 1px solid var(--line); transition: all .25s ease;
+    position: relative;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: rgba(29,111,184,0.3);
+  }
+  .service-icon {
+    width: 54px; height: 54px; border-radius: 14px;
+    background: linear-gradient(135deg, rgba(29,111,184,0.1), rgba(255,122,26,0.08));
+    display: grid; place-items: center; font-size: 1.6rem; margin-bottom: 20px;
+  }
+  .service-card h3 { color: var(--navy); margin-bottom: 10px; font-size: 1.15rem; }
+  .service-card p { color: var(--muted); font-size: .95rem; }
+
+  /* Testimonials */
+  .testimonials { background: linear-gradient(180deg, var(--bg) 0%, #eef3f8 100%); }
+  .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .test-card {
+    background: white; padding: 30px; border-radius: 16px;
+    box-shadow: 0 6px 22px rgba(12,36,64,0.06);
+  }
+  .stars { color: var(--orange); margin-bottom: 14px; font-size: 1rem; }
+  .test-card p { color: var(--ink); font-style: italic; margin-bottom: 18px; line-height: 1.55; }
+  .test-author { display: flex; align-items: center; gap: 12px; }
+  .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    color: white; display: grid; place-items: center; font-weight: 700;
+  }
+  .test-author strong { display: block; color: var(--navy); font-size: .95rem; }
+  .test-author small { color: var(--muted); }
+
+  /* Contact */
+  .contact { background: white; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .contact-info > div { margin-bottom: 28px; display: flex; gap: 18px; align-items: flex-start; }
+  .ci-icon {
+    width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    color: white; display: grid; place-items: center; font-size: 1.2rem;
+  }
+  .contact-info strong { display: block; color: var(--navy); margin-bottom: 4px; }
+  .contact-info a, .contact-info span { color: var(--muted); }
+  form.contact-form {
+    background: var(--bg); padding: 36px; border-radius: 18px;
+    border: 1px solid var(--line);
+  }
+  .form-row { margin-bottom: 18px; }
+  .form-row label { display: block; font-size: .85rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .form-row input, .form-row textarea {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px;
+    font-family: inherit; font-size: .95rem; background: white;
+    transition: border-color .2s;
+  }
+  .form-row input:focus, .form-row textarea:focus { outline: none; border-color: var(--blue); }
+  .form-row textarea { min-height: 110px; resize: vertical; }
+  button.submit {
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    color: white; border: none; padding: 14px 28px; border-radius: 999px;
+    font-weight: 700; cursor: pointer; font-size: .98rem;
+    box-shadow: 0 8px 20px rgba(229,91,0,0.32);
+    transition: transform .15s ease;
+  }
+  button.submit:hover { transform: translateY(-1px); }
+
+  /* CTA strip */
+  .cta-strip {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    padding: 64px 0; color: white;
+  }
+  .cta-strip .container { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .cta-strip h3 { font-size: clamp(1.4rem, 3vw, 2rem); max-width: 600px; }
+
+  /* Footer */
+  footer { background: #081827; color: rgba(255,255,255,0.7); padding: 56px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  footer h4 { color: white; font-size: 1rem; margin-bottom: 14px; }
+  footer ul { list-style: none; }
+  footer li { padding: 5px 0; }
+  footer a { color: rgba(255,255,255,0.7); transition: color .2s; }
+  footer a:hover { color: white; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px; display: flex; justify-content: space-between; font-size: .85rem;
+    flex-wrap: wrap; gap: 12px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-grid, .about-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+    .services-grid, .test-grid { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+    section { padding: 64px 0; }
+    .hero { padding: 70px 0 80px; }
+  }
+  @media (max-width: 480px) {
+    .container { padding: 0 18px; }
+    .call-btn { padding: 9px 16px; font-size: .85rem; }
+    .btn-primary, .btn-ghost { padding: 13px 22px; font-size: .95rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark">💧</span>
+      All About Plumbing Inc.
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="call-btn" href="tel:8154363606">📞 (815) 436-3606</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">⚡ 24/7 Emergency Service Available</span>
+      <h1>Reliable plumber Service You Can <span>Count On</span>.</h1>
+      <p class="lead">Family-owned and serving 1705 Whispering Oaks Dr, Plainfield, IL 60586, USA for over a decade. Licensed, insured, and committed to honest work at fair prices — no surprise fees, no upsells, just plumbing done right.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="tel:8154363606">Call (815) 436-3606</a>
+        <a class="btn-ghost" href="#services">Our Services</a>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <h3>Why neighbors choose All About Plumbing Inc.</h3>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">15+</div><div class="lbl">Years experience</div></div>
+        <div class="stat"><div class="num">4.9★</div><div class="lbl">Average rating</div></div>
+        <div class="stat"><div class="num">24/7</div><div class="lbl">Emergency calls</div></div>
+        <div class="stat"><div class="num">100%</div><div class="lbl">Up-front pricing</div></div>
+      </div>
+      <ul>
+        <li><span class="check">✓</span> Licensed &amp; insured</li>
+        <li><span class="check">✓</span> Free written estimates</li>
+        <li><span class="check">✓</span> Workmanship guarantee</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-visual">
+      <div class="float-card">
+        <div class="ring">⭐</div>
+        <div><strong>Trusted by 2,000+ local families</strong><small>and counting…</small></div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">About All About Plumbing Inc.</div>
+      <h2 class="section-title">Local. Honest. Built on referrals.</h2>
+      <p>All About Plumbing Inc. was started with one simple idea: plumbing service should feel like calling a trusted friend. We answer the phone ourselves, we show up when we say we will, and we explain every job in plain English before we touch a wrench.</p>
+      <p>From a leaky faucet to a full repipe, our technicians treat your home like it's their own — drop cloths down, boots covered, and every job site left cleaner than we found it.</p>
+      <ul class="bullets">
+        <li>Up-front, flat-rate pricing — no clock-watching</li>
+        <li>Same-day appointments when you call before noon</li>
+        <li>Two-year warranty on parts and labor</li>
+        <li>Background-checked, drug-tested technicians</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="eyebrow">What we do</div>
+    <h2 class="section-title">Full-service plumbing for home and business.</h2>
+    <p class="section-lead">From small repairs to full installs, we handle it all — and we stand behind every job we do.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🚿</div>
+        <h3>Drain &amp; Sewer Cleaning</h3>
+        <p>Hydro-jetting, snaking, and camera inspection to clear stubborn clogs and restore full flow.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔥</div>
+        <h3>Water Heater Service</h3>
+        <p>Repair, replacement, and tankless installs from top brands. Same-day hot water in most cases.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚽</div>
+        <h3>Toilet &amp; Fixture Repair</h3>
+        <p>Running toilets, faulty flappers, leaky valves, and full fixture replacements — fixed fast.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💦</div>
+        <h3>Leak Detection</h3>
+        <p>Non-invasive leak finding using acoustic and thermal tools — no unnecessary wall damage.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Repiping &amp; New Installs</h3>
+        <p>Whole-home repipes, kitchen and bath remodels, and new fixture installs to code.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚨</div>
+        <h3>24/7 Emergency Service</h3>
+        <p>Burst pipe? Backed-up sewer? Call any time — we answer the phone and dispatch fast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <div class="container">
+    <div class="eyebrow">What customers say</div>
+    <h2 class="section-title">Real reviews from 1705 Whispering Oaks Dr, Plainfield, IL 60586, USA neighbors.</h2>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Called All About Plumbing Inc. on a Sunday morning when our water heater quit. They were here in 90 minutes and had hot water restored before dinner. Fair price, no upsell. These guys are the real deal."</p>
+        <div class="test-author"><div class="avatar">MR</div><div><strong>Maria R.</strong><small>Homeowner</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Honest, professional, and they cleaned up after themselves better than I would have. Quoted me half what the 'big name' guys did. I'll never call anyone else."</p>
+        <div class="test-author"><div class="avatar">JT</div><div><strong>James T.</strong><small>Repeat customer</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"I run a small restaurant and a backed-up drain on a Friday night would have killed our weekend. They came within the hour, fixed it, and we never lost a table. Total lifesavers."</p>
+        <div class="test-author"><div class="avatar">SK</div><div><strong>Sarah K.</strong><small>Local business owner</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">Get in touch</div>
+      <h2 class="section-title">Ready when you are.</h2>
+      <p class="section-lead">Have a plumbing problem or just want a free estimate? Call us, email us, or send a quick note below and we'll get back to you the same day.</p>
+      <div class="contact-info">
+        <div>
+          <div class="ci-icon">📞</div>
+          <div><strong>Call us anytime</strong><a href="tel:8154363606">(815) 436-3606</a></div>
+        </div>
+        <div>
+          <div class="ci-icon">✉️</div>
+          <div><strong>Email</strong><a href="mailto:"></a></div>
+        </div>
+        <div>
+          <div class="ci-icon">📍</div>
+          <div><strong>Service area</strong><span>1705 Whispering Oaks Dr, Plainfield, IL 60586, USA</span></div>
+        </div>
+        <div>
+          <div class="ci-icon">🕒</div>
+          <div><strong>Hours</strong><span>Mon–Sat 7am–7pm · 24/7 emergency service</span></div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks! We will be in touch shortly.');">
+      <div class="form-row"><label for="name">Your name</label><input id="name" required></div>
+      <div class="form-row"><label for="phone">Phone</label><input id="phone" type="tel" required></div>
+      <div class="form-row"><label for="problem">How can we help?</label><textarea id="problem" placeholder="Tell us a little about the job…"></textarea></div>
+      <button class="submit" type="submit">Request a free estimate →</button>
+    </form>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container">
+    <h3>Pipes leaking? Drain backing up? We're standing by.</h3>
+    <a class="btn-primary" href="tel:8154363606">Call (815) 436-3606</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color: white;">
+          <span class="logo-mark">💧</span>
+          All About Plumbing Inc.
+        </div>
+        <p style="margin-top: 14px; max-width: 360px;">Honest, neighborhood plumbing service in 1705 Whispering Oaks Dr, Plainfield, IL 60586, USA. Licensed, insured, and proudly local.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Drain cleaning</a></li>
+          <li><a href="#services">Water heaters</a></li>
+          <li><a href="#services">Leak detection</a></li>
+          <li><a href="#services">Repiping</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:8154363606">(815) 436-3606</a></li>
+          <li><a href="mailto:"></a></li>
+          <li>1705 Whispering Oaks Dr, Plainfield, IL 60586, USA</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 All About Plumbing Inc.. All rights reserved.</span>
+      <span>Licensed · Bonded · Insured</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
