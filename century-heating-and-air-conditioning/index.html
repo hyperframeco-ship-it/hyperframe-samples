@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Century Heating and Air Conditioning — hvac</title>
+<meta name="description" content="Century Heating and Air Conditioning — heating, cooling, and indoor air quality in 3173 Bromley Ln, Aurora, IL 60502, USA. 24/7 emergency service: (630) 853-5503.">
+<style>
+  :root {
+    --bg: #f4f8fc;
+    --white: #ffffff;
+    --cold: #1e7bd9;
+    --cold-dark: #0a539c;
+    --hot: #e8602b;
+    --hot-dark: #c14517;
+    --ink: #122033;
+    --muted: #5d6c80;
+    --line: #dde6f1;
+    --soft: #e9f1fa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--cold); text-decoration: none; }
+  .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(244,248,252,0.93);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+  .logo { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.2rem; color: var(--cold-dark); }
+  .logo-mark {
+    width: 42px; height: 42px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--cold), var(--cold-dark));
+    color: white; display: grid; place-items: center; font-size: 1.2rem;
+    box-shadow: 0 6px 18px rgba(30,123,217,0.3);
+    position: relative; overflow: hidden;
+  }
+  .logo-mark::after {
+    content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 50%;
+    background: linear-gradient(135deg, var(--hot), var(--hot-dark));
+    opacity: .8;
+  }
+  .logo-mark span { position: relative; z-index: 1; }
+  nav ul { list-style: none; display: flex; gap: 28px; }
+  nav a { color: var(--ink); font-weight: 500; transition: color .2s; }
+  nav a:hover { color: var(--cold); }
+  .call-btn {
+    background: linear-gradient(135deg, var(--hot), var(--hot-dark));
+    color: white; padding: 11px 22px; border-radius: 999px;
+    font-weight: 800; box-shadow: 0 8px 20px rgba(232,96,43,0.32);
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: transform .15s;
+  }
+  .call-btn:hover { color: white; transform: translateY(-2px); }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden;
+    background:
+      linear-gradient(135deg, rgba(30,123,217,0.1), transparent 50%),
+      linear-gradient(225deg, rgba(232,96,43,0.1), transparent 50%);
+    padding: 100px 0 120px;
+  }
+  .hero::before {
+    content: ""; position: absolute; bottom: -120px; right: -80px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(30,123,217,0.12) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: ""; position: absolute; top: -100px; left: -60px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,96,43,0.12) 0%, transparent 70%);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; position: relative; }
+  .alert {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--hot); color: white;
+    padding: 8px 18px; border-radius: 999px; font-size: .85rem; font-weight: 700;
+    margin-bottom: 24px; box-shadow: 0 8px 20px rgba(232,96,43,0.25);
+  }
+  .pulse {
+    width: 8px; height: 8px; border-radius: 50%; background: white;
+    box-shadow: 0 0 0 0 rgba(255,255,255,0.7);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.6); }
+    70% { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.7rem);
+    line-height: 1.05; font-weight: 800; color: var(--ink);
+    margin-bottom: 22px; letter-spacing: -.02em;
+  }
+  .hero h1 .cold { color: var(--cold); }
+  .hero h1 .hot { color: var(--hot); }
+  .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 540px; margin-bottom: 32px; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--hot), var(--hot-dark));
+    color: white; padding: 16px 30px; border-radius: 999px;
+    font-weight: 700; box-shadow: 0 12px 28px rgba(232,96,43,0.32);
+    transition: transform .15s;
+  }
+  .btn-primary:hover { color: white; transform: translateY(-2px); }
+  .btn-secondary {
+    background: linear-gradient(135deg, var(--cold), var(--cold-dark));
+    color: white; padding: 16px 30px; border-radius: 999px;
+    font-weight: 700; box-shadow: 0 12px 28px rgba(30,123,217,0.32);
+    transition: transform .15s;
+  }
+  .btn-secondary:hover { color: white; transform: translateY(-2px); }
+
+  .hero-panel {
+    background: white; padding: 30px; border-radius: 22px;
+    box-shadow: 0 30px 60px rgba(18,32,51,0.12);
+    position: relative; overflow: hidden;
+  }
+  .hero-panel::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--cold), var(--hot));
+  }
+  .hero-panel h3 { color: var(--ink); font-size: 1.05rem; margin-bottom: 22px; }
+  .row { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .row:last-child { border-bottom: none; }
+  .row .label { color: var(--muted); font-size: .94rem; }
+  .row .value { font-weight: 700; color: var(--cold-dark); }
+  .row .value.hot-val { color: var(--hot-dark); }
+
+  /* Sections */
+  section { padding: 100px 0; }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: .15em;
+    font-size: .8rem; font-weight: 800; color: var(--hot);
+    margin-bottom: 12px;
+  }
+  h2.section-title {
+    font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.1;
+    color: var(--ink); margin-bottom: 16px; font-weight: 800; letter-spacing: -.01em;
+  }
+  .section-lead { color: var(--muted); max-width: 640px; font-size: 1.05rem; margin-bottom: 48px; }
+
+  /* Services */
+  .services { background: white; }
+  .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .service-card {
+    padding: 36px; border-radius: 18px;
+    border: 1px solid var(--line);
+    display: flex; gap: 20px; align-items: flex-start;
+    transition: all .25s ease; background: white;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(18,32,51,0.1); border-color: var(--cold); }
+  .service-card.heat:hover { border-color: var(--hot); }
+  .service-icon {
+    width: 60px; height: 60px; border-radius: 16px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--cold), var(--cold-dark));
+    color: white; display: grid; place-items: center; font-size: 1.7rem;
+    box-shadow: 0 10px 24px rgba(30,123,217,0.25);
+  }
+  .service-card.heat .service-icon {
+    background: linear-gradient(135deg, var(--hot), var(--hot-dark));
+    box-shadow: 0 10px 24px rgba(232,96,43,0.25);
+  }
+  .service-card h3 { color: var(--ink); margin-bottom: 8px; font-size: 1.18rem; }
+  .service-card p { color: var(--muted); font-size: .95rem; }
+
+  /* About */
+  .about { background: linear-gradient(180deg, var(--bg) 0%, var(--soft) 100%); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: center; }
+  .about-visual {
+    aspect-ratio: 4/5; border-radius: 26px; overflow: hidden;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(232,96,43,0.4), transparent 55%),
+      linear-gradient(135deg, var(--cold-dark) 0%, var(--cold) 100%);
+    position: relative; box-shadow: 0 28px 56px rgba(18,32,51,0.2);
+  }
+  .about-visual::before {
+    content: "❄️"; position: absolute; top: 24%; left: 20%;
+    font-size: 4rem; opacity: .4;
+  }
+  .about-visual::after {
+    content: "🔥"; position: absolute; bottom: 22%; right: 22%;
+    font-size: 4rem; opacity: .4;
+  }
+  .badge-pin {
+    position: absolute; background: white; padding: 18px 22px;
+    border-radius: 14px; box-shadow: 0 14px 32px rgba(0,0,0,0.18);
+  }
+  .bp1 { top: 28px; left: 28px; }
+  .bp2 { bottom: 28px; right: 28px; }
+  .badge-pin strong { display: block; color: var(--ink); font-size: 1.3rem; }
+  .badge-pin small { color: var(--muted); font-size: .82rem; }
+  .about-text p { color: var(--muted); margin-bottom: 16px; font-size: 1.05rem; }
+  .about-text ul { list-style: none; margin-top: 22px; display: grid; gap: 14px; }
+  .about-text li { display: flex; gap: 14px; align-items: center; color: var(--ink); }
+  .about-text li .ic {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--soft); color: var(--cold);
+    display: grid; place-items: center; font-size: 1rem; flex-shrink: 0;
+  }
+
+  /* Maintenance plans */
+  .plans { background: var(--soft); }
+  .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .plan {
+    background: white; padding: 38px 32px; border-radius: 20px;
+    border: 1px solid var(--line); transition: all .25s;
+    position: relative;
+  }
+  .plan.featured {
+    border: 2px solid var(--hot);
+    transform: scale(1.03);
+    box-shadow: 0 24px 52px rgba(232,96,43,0.18);
+  }
+  .plan.featured .feat-badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--hot); color: white;
+    padding: 6px 16px; border-radius: 999px; font-size: .78rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: .06em;
+  }
+  .plan h3 { color: var(--ink); font-size: 1.2rem; margin-bottom: 6px; }
+  .plan .price-row { display: flex; align-items: baseline; gap: 6px; margin: 14px 0 20px; }
+  .plan .price { font-size: 2.4rem; font-weight: 900; color: var(--cold-dark); }
+  .plan.featured .price { color: var(--hot-dark); }
+  .plan .period { color: var(--muted); }
+  .plan ul { list-style: none; margin-bottom: 24px; }
+  .plan li { padding: 9px 0; padding-left: 28px; position: relative; color: var(--ink); font-size: .94rem; border-bottom: 1px dashed var(--line); }
+  .plan li:last-child { border-bottom: none; }
+  .plan li::before {
+    content: "✓"; position: absolute; left: 0; top: 9px;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--cold); color: white; font-size: .7rem;
+    display: grid; place-items: center; font-weight: 700;
+  }
+  .plan.featured li::before { background: var(--hot); }
+  .plan-cta {
+    display: block; text-align: center;
+    padding: 12px 22px; border-radius: 999px;
+    background: var(--cold); color: white; font-weight: 700;
+    transition: background .2s;
+  }
+  .plan.featured .plan-cta { background: var(--hot); }
+  .plan-cta:hover { color: white; opacity: .92; }
+
+  /* Testimonials */
+  .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .test-card {
+    background: white; padding: 32px; border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(18,32,51,0.06);
+    border: 1px solid var(--line);
+  }
+  .stars { color: var(--hot); margin-bottom: 14px; }
+  .test-card p { color: var(--ink); font-style: italic; margin-bottom: 18px; line-height: 1.6; }
+  .test-author { display: flex; align-items: center; gap: 12px; }
+  .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--cold), var(--hot));
+    color: white; display: grid; place-items: center; font-weight: 700;
+  }
+  .test-author strong { display: block; color: var(--ink); }
+  .test-author small { color: var(--muted); }
+
+  /* Contact */
+  .contact { background: white; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+  .ci-row { display: flex; gap: 18px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .ci-row:last-child { border-bottom: none; }
+  .ci-icon {
+    width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--cold), var(--cold-dark));
+    color: white; display: grid; place-items: center; font-size: 1.2rem;
+  }
+  .ci-row strong { display: block; color: var(--ink); margin-bottom: 4px; }
+  .ci-row span, .ci-row a { color: var(--muted); }
+  form.contact-form {
+    background: var(--soft); padding: 36px; border-radius: 22px; border: 1px solid var(--line);
+  }
+  .form-row { margin-bottom: 16px; }
+  .form-row label { font-size: .85rem; font-weight: 600; color: var(--ink); display: block; margin-bottom: 6px; }
+  .form-row input, .form-row textarea, .form-row select {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--line);
+    background: white; border-radius: 12px; font-family: inherit; font-size: .95rem;
+  }
+  .form-row input:focus, .form-row textarea:focus, .form-row select:focus { outline: none; border-color: var(--cold); }
+  .form-row textarea { min-height: 100px; resize: vertical; }
+  button.submit {
+    background: linear-gradient(135deg, var(--hot), var(--hot-dark));
+    color: white; border: none; padding: 14px 30px; border-radius: 999px;
+    font-weight: 700; cursor: pointer; font-size: .98rem;
+    box-shadow: 0 10px 26px rgba(232,96,43,0.3);
+  }
+
+  footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 56px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  footer h4 { color: white; font-size: 1rem; margin-bottom: 14px; }
+  footer ul { list-style: none; }
+  footer li { padding: 5px 0; }
+  footer a { color: rgba(255,255,255,0.7); }
+  footer a:hover { color: white; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: .85rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero-grid, .about-grid, .contact-grid, .footer-grid, .services-grid, .plans-grid, .test-grid { grid-template-columns: 1fr; }
+    .plan.featured { transform: none; }
+    nav ul { display: none; }
+    section { padding: 70px 0; }
+  }
+  @media (max-width: 480px) { .container { padding: 0 18px; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="logo"><span class="logo-mark"><span>🌡️</span></span>Century Heating and Air Conditioning</a>
+    <nav><ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#plans">Maintenance</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <a class="call-btn" href="tel:6308535503">📞 (630) 853-5503</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="alert"><span class="pulse"></span>24/7 Emergency Service Available</span>
+      <h1>Keep your home <span class="cold">cool</span> in summer, <span class="hot">warm</span> in winter.</h1>
+      <p class="lead">Century Heating and Air Conditioning is the heating and cooling team 3173 Bromley Ln, Aurora, IL 60502, USA calls when their system breaks — and when they want it to never break again. Licensed, insured, and committed to honest, up-front pricing.</p>
+      <div class="ctas">
+        <a class="btn-primary" href="tel:6308535503">Call (630) 853-5503</a>
+        <a class="btn-secondary" href="#contact">Free Estimate</a>
+      </div>
+    </div>
+    <aside class="hero-panel">
+      <h3>Today's HVAC service</h3>
+      <div class="row"><span class="label">Same-day appointments</span><span class="value">Available</span></div>
+      <div class="row"><span class="label">Diagnostic visit</span><span class="value">$0 with repair</span></div>
+      <div class="row"><span class="label">Emergency response</span><span class="value hot-val">&lt; 90 minutes</span></div>
+      <div class="row"><span class="label">Manufacturer warranties honored</span><span class="value">All brands</span></div>
+      <div class="row"><span class="label">Labor warranty</span><span class="value">5 years</span></div>
+    </aside>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="eyebrow">Our Services</div>
+    <h2 class="section-title">Everything HVAC, under one roof.</h2>
+    <p class="section-lead">Repair, replace, install, or maintain — we cover residential and light commercial heating and cooling end-to-end.</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">❄️</div><div><h3>Air Conditioning</h3><p>Central AC repair, full system replacement, mini-splits, and ductless installs from all major brands.</p></div></div>
+      <div class="service-card heat"><div class="service-icon">🔥</div><div><h3>Heating &amp; Furnaces</h3><p>Gas, electric, and heat-pump furnace service. Annual tune-ups and full system replacements.</p></div></div>
+      <div class="service-card"><div class="service-icon">🌬️</div><div><h3>Indoor Air Quality</h3><p>Whole-home filtration, humidifiers, UV lights, and duct cleaning for cleaner, healthier air.</p></div></div>
+      <div class="service-card heat"><div class="service-icon">🚰</div><div><h3>Water Heaters</h3><p>Tank, tankless, and hybrid heat pump water heater installation, repair, and replacement.</p></div></div>
+      <div class="service-card"><div class="service-icon">🏠</div><div><h3>Ductwork &amp; Insulation</h3><p>Sealing, repair, and full duct replacement. Plus attic insulation upgrades for energy savings.</p></div></div>
+      <div class="service-card heat"><div class="service-icon">🚨</div><div><h3>24/7 Emergency Service</h3><p>HVAC down on the hottest or coldest day of the year? Call any time — we'll be there fast.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-visual">
+      <div class="badge-pin bp1"><strong>NATE Certified</strong><small>All technicians</small></div>
+      <div class="badge-pin bp2"><strong>4.9 ★</strong><small>over 800 reviews</small></div>
+    </div>
+    <div class="about-text">
+      <div class="eyebrow">About Century Heating and Air Conditioning</div>
+      <h2 class="section-title">Comfort done right, the first time.</h2>
+      <p>Century Heating and Air Conditioning has been keeping 3173 Bromley Ln, Aurora, IL 60502, USA homes comfortable for over two decades. We're a family business — same owners, same crew, same standards we started with.</p>
+      <p>We don't work on commission. Our technicians get paid the same whether you replace your system or you just need a $40 part. That's why customers trust the recommendations we give.</p>
+      <ul>
+        <li><span class="ic">✓</span>NATE-certified technicians on every job</li>
+        <li><span class="ic">✓</span>Flat-rate pricing — no hourly billing</li>
+        <li><span class="ic">✓</span>10-year warranty on new system installs</li>
+        <li><span class="ic">✓</span>Financing available with approved credit</li>
+        <li><span class="ic">✓</span>All major brands serviced &amp; installed</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="plans" id="plans">
+  <div class="container">
+    <div class="eyebrow">Maintenance Plans</div>
+    <h2 class="section-title">Skip the breakdown. Save on repairs.</h2>
+    <p class="section-lead">Members get priority service, discounted parts, and two tune-ups a year — and most never have an unexpected breakdown again.</p>
+    <div class="plans-grid">
+      <div class="plan">
+        <h3>Basic</h3>
+        <div class="price-row"><span class="price">$129</span><span class="period">/ year</span></div>
+        <ul>
+          <li>1 annual tune-up</li>
+          <li>10% off all repairs</li>
+          <li>Priority scheduling</li>
+          <li>No after-hours fees</li>
+        </ul>
+        <a class="plan-cta" href="#contact">Get started</a>
+      </div>
+      <div class="plan featured">
+        <div class="feat-badge">Most popular</div>
+        <h3>Comfort Plus</h3>
+        <div class="price-row"><span class="price">$229</span><span class="period">/ year</span></div>
+        <ul>
+          <li>2 annual tune-ups (heat + cool)</li>
+          <li>20% off all repairs</li>
+          <li>Priority + emergency service</li>
+          <li>Free filter delivery (4×/yr)</li>
+          <li>Free diagnostic visits</li>
+        </ul>
+        <a class="plan-cta" href="#contact">Get started</a>
+      </div>
+      <div class="plan">
+        <h3>Total Care</h3>
+        <div class="price-row"><span class="price">$399</span><span class="period">/ year</span></div>
+        <ul>
+          <li>Everything in Comfort Plus</li>
+          <li>30% off all repairs</li>
+          <li>1 free repair / year</li>
+          <li>10-year extended labor warranty</li>
+          <li>$200 toward new system</li>
+        </ul>
+        <a class="plan-cta" href="#contact">Get started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div class="eyebrow">Reviews</div>
+    <h2 class="section-title">What 3173 Bromley Ln, Aurora, IL 60502, USA customers say.</h2>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"AC died on a 95° Friday in July. Century Heating and Air Conditioning had a tech at our house in under two hours and the system was running before bedtime. Never going anywhere else."</p>
+        <div class="test-author"><div class="avatar">DK</div><div><strong>Diane K.</strong><small>Emergency call</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Got three quotes for a new system. Century Heating and Air Conditioning was the only one who actually measured the duct work and did a proper load calc. Cheaper too. Three years in, runs like a dream."</p>
+        <div class="test-author"><div class="avatar">MS</div><div><strong>Marcus S.</strong><small>Full system install</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Joined the Comfort Plus plan two years ago. Two tune-ups a year, no surprise problems, and my heating bill has actually dropped. Money well spent."</p>
+        <div class="test-author"><div class="avatar">LR</div><div><strong>Lisa R.</strong><small>Maintenance plan member</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">Get in touch</div>
+      <h2 class="section-title">Free estimate. Same-day service.</h2>
+      <p class="section-lead">System acting up? Need a quote on a new install? Want to join a maintenance plan? Call us or drop a note — we'll get back same day.</p>
+      <div class="ci-row"><div class="ci-icon">📞</div><div><strong>Call us</strong><a href="tel:6308535503">(630) 853-5503</a></div></div>
+      <div class="ci-row"><div class="ci-icon">✉️</div><div><strong>Email</strong><a href="mailto:"></a></div></div>
+      <div class="ci-row"><div class="ci-icon">📍</div><div><strong>Service area</strong><span>3173 Bromley Ln, Aurora, IL 60502, USA</span></div></div>
+      <div class="ci-row"><div class="ci-icon">🕒</div><div><strong>Hours</strong><span>Mon–Sat 7am–7pm · 24/7 emergency</span></div></div>
+    </div>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks — a technician will follow up shortly.');">
+      <div class="form-row"><label for="n">Name</label><input id="n" required></div>
+      <div class="form-row"><label for="p">Phone</label><input id="p" type="tel" required></div>
+      <div class="form-row"><label for="sv">Service needed</label>
+        <select id="sv">
+          <option>AC repair / not cooling</option>
+          <option>Heating / furnace issue</option>
+          <option>System replacement quote</option>
+          <option>Maintenance / tune-up</option>
+          <option>Indoor air quality</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row"><label for="m">Describe the problem</label><textarea id="m"></textarea></div>
+      <button class="submit" type="submit">Request service →</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color: white;"><span class="logo-mark"><span>🌡️</span></span>Century Heating and Air Conditioning</div>
+        <p style="margin-top: 14px; max-width: 360px;">Heating, cooling, and indoor air quality experts serving 3173 Bromley Ln, Aurora, IL 60502, USA for over 20 years.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="#services">Air conditioning</a></li><li><a href="#services">Heating</a></li><li><a href="#services">Maintenance</a></li><li><a href="#services">Air quality</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="tel:6308535503">(630) 853-5503</a></li><li><a href="mailto:"></a></li><li>3173 Bromley Ln, Aurora, IL 60502, USA</li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Century Heating and Air Conditioning · NATE Certified · Licensed &amp; Insured</span><span>3173 Bromley Ln, Aurora, IL 60502, USA</span></div>
+  </div>
+</footer>
+
+</body>
+</html>
