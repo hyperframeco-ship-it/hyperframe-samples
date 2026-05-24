@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bittmann Tree Service — tree service</title>
+<meta name="description" content="Bittmann Tree Service — certified tree service in 8998 E 4000 S Rd, St Anne, IL 60964, USA. Removal, trimming, stump grinding, and 24/7 emergency response. Free estimates: (815) 955-0206.">
+<style>
+  :root {
+    --bg: #f6f3eb;
+    --paper: #fffdf6;
+    --bark: #3a2a1c;
+    --bark-dark: #21170e;
+    --moss: #3f5a2b;
+    --moss-dark: #2a3d1c;
+    --moss-light: #6b8c4f;
+    --leaf: #8eb35a;
+    --ochre: #c98a2c;
+    --ochre-dark: #9a661a;
+    --ink: #1d1812;
+    --muted: #6b5f4e;
+    --line: #d8d0bd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--moss); text-decoration: none; }
+  .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .serif { font-family: Georgia, "Iowan Old Style", serif; }
+
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(246,243,235,0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+  .logo { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.2rem; color: var(--bark); font-family: Georgia, serif; }
+  .logo-mark {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--moss-light), var(--moss-dark));
+    color: var(--bg); display: grid; place-items: center; font-size: 1.4rem;
+    box-shadow: 0 8px 20px rgba(63,90,43,0.3);
+  }
+  nav ul { list-style: none; display: flex; gap: 28px; }
+  nav a { color: var(--ink); font-weight: 600; transition: color .2s; font-size: .95rem; }
+  nav a:hover { color: var(--moss); }
+  .quote-btn {
+    background: var(--bark); color: var(--bg); padding: 11px 22px;
+    border-radius: 999px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background .2s;
+  }
+  .quote-btn:hover { background: var(--moss-dark); color: var(--bg); }
+
+  /* Emergency banner */
+  .emergency-bar {
+    background: var(--bark-dark); color: var(--bg);
+    text-align: center; padding: 9px 16px; font-size: .85rem; font-weight: 600;
+    letter-spacing: .02em;
+  }
+  .emergency-bar a { color: var(--ochre); font-weight: 800; }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(ellipse at top right, rgba(201,138,44,0.18), transparent 55%),
+      linear-gradient(180deg, var(--bg) 0%, #efe9d8 100%);
+    padding: 90px 0 110px;
+  }
+  .hero::before {
+    content: ""; position: absolute; bottom: -120px; left: -60px;
+    width: 560px; height: 560px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(63,90,43,0.1) 0%, transparent 70%);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; position: relative; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(63,90,43,0.1); color: var(--moss-dark);
+    padding: 7px 16px; border-radius: 999px; font-size: .85rem;
+    font-weight: 700; margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: Georgia, "Iowan Old Style", serif;
+    font-size: clamp(2.5rem, 5.8vw, 4.2rem);
+    line-height: 1.02; color: var(--bark-dark); font-weight: 600;
+    margin-bottom: 22px; letter-spacing: -.015em;
+  }
+  .hero h1 em { font-style: italic; color: var(--moss); }
+  .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 540px; margin-bottom: 32px; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn-primary {
+    background: var(--moss-dark); color: var(--bg);
+    padding: 16px 30px; border-radius: 999px;
+    font-weight: 700; transition: background .2s, transform .15s;
+    box-shadow: 0 14px 30px rgba(42,61,28,0.3);
+  }
+  .btn-primary:hover { background: var(--bark); color: var(--bg); transform: translateY(-2px); }
+  .btn-outline {
+    color: var(--bark); border: 2px solid var(--bark);
+    padding: 14px 28px; border-radius: 999px; font-weight: 700;
+    transition: background .2s, color .2s;
+  }
+  .btn-outline:hover { background: var(--bark); color: var(--bg); }
+
+  .hero-visual {
+    position: relative; aspect-ratio: 4/5;
+    border-radius: 200px 200px 24px 24px;
+    background:
+      radial-gradient(ellipse at 50% 90%, rgba(0,0,0,0.3), transparent 60%),
+      radial-gradient(circle at 50% 28%, var(--leaf) 0%, var(--moss) 35%, var(--moss-dark) 60%, var(--bark) 100%);
+    box-shadow: 0 30px 60px rgba(58,42,28,0.3);
+    overflow: hidden;
+  }
+  .hero-visual::before {
+    content: ""; position: absolute; left: 50%; bottom: 0;
+    transform: translateX(-50%);
+    width: 80px; height: 45%;
+    background: linear-gradient(180deg, var(--bark) 0%, var(--bark-dark) 100%);
+    border-radius: 14px 14px 0 0;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.4);
+  }
+  .hero-visual::after {
+    content: "🌲"; position: absolute; bottom: 24px; right: 30px;
+    font-size: 4rem; opacity: .35;
+  }
+  .float-tile {
+    position: absolute; background: var(--paper);
+    padding: 16px 20px; border-radius: 14px;
+    box-shadow: 0 18px 40px rgba(33,23,14,0.22);
+    z-index: 2;
+  }
+  .ft1 { top: 22px; left: -16px; }
+  .ft1 .lbl { font-size: .78rem; color: var(--muted); }
+  .ft1 .val { font-size: 1.2rem; font-weight: 800; color: var(--moss-dark); font-family: Georgia, serif; }
+  .ft2 {
+    bottom: 22px; left: 50%; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .ft2 .ring {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--ochre); color: white;
+    display: grid; place-items: center; font-size: 1.1rem;
+  }
+  .ft2 strong { display: block; color: var(--bark); font-size: .95rem; }
+  .ft2 small { color: var(--muted); }
+  .ft3 {
+    top: 50%; right: -10px; transform: translateY(-50%);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .ft3 .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--ochre); animation: pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: .5; }
+  }
+  .ft3 strong { color: var(--bark); font-size: .88rem; }
+
+  /* Sections */
+  section { padding: 100px 0; }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: .18em;
+    font-size: .78rem; font-weight: 800; color: var(--ochre-dark);
+    margin-bottom: 12px;
+  }
+  h2.section-title {
+    font-family: Georgia, serif; font-weight: 600;
+    font-size: clamp(2rem, 4.2vw, 2.9rem); line-height: 1.08;
+    color: var(--bark-dark); margin-bottom: 16px; letter-spacing: -.01em;
+  }
+  h2.section-title em { font-style: italic; color: var(--moss); }
+  .section-lead { color: var(--muted); max-width: 640px; font-size: 1.05rem; margin-bottom: 48px; }
+
+  /* Services */
+  .services { background: var(--paper); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  }
+  .service-card {
+    background: var(--bg); padding: 36px 28px; border-radius: 18px;
+    border: 1px solid var(--line); transition: all .25s ease;
+    position: relative;
+  }
+  .service-card:hover {
+    transform: translateY(-5px); background: var(--paper);
+    box-shadow: 0 22px 44px rgba(58,42,28,0.12);
+    border-color: var(--moss-light);
+  }
+  .service-icon {
+    width: 60px; height: 60px; border-radius: 16px;
+    background: linear-gradient(135deg, rgba(63,90,43,0.12), rgba(201,138,44,0.1));
+    color: var(--moss-dark);
+    display: grid; place-items: center; font-size: 1.9rem; margin-bottom: 20px;
+  }
+  .service-card h3 { color: var(--bark-dark); margin-bottom: 10px; font-size: 1.18rem; font-family: Georgia, serif; font-weight: 700; }
+  .service-card p { color: var(--muted); font-size: .96rem; }
+  .service-card .tag {
+    display: inline-block; margin-top: 12px;
+    background: rgba(201,138,44,0.15); color: var(--ochre-dark);
+    padding: 3px 12px; border-radius: 999px;
+    font-size: .76rem; font-weight: 700; letter-spacing: .03em;
+  }
+
+  /* Why us — certified arborists */
+  .why { background: var(--bg); }
+  .why-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
+  .why-visual {
+    aspect-ratio: 1/1.05; border-radius: 28px; overflow: hidden;
+    background:
+      radial-gradient(circle at 25% 30%, rgba(201,138,44,0.35), transparent 50%),
+      linear-gradient(155deg, var(--moss-dark) 0%, var(--bark-dark) 100%);
+    position: relative;
+    box-shadow: 0 28px 56px rgba(33,23,14,0.25);
+  }
+  .why-visual::after {
+    content: "🪓"; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); font-size: 8rem; opacity: .2;
+  }
+  .seal {
+    position: absolute; top: 28px; left: 28px;
+    background: var(--paper); padding: 18px 22px; border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  }
+  .seal strong { display: block; color: var(--moss-dark); font-size: 1.2rem; font-family: Georgia, serif; }
+  .seal small { color: var(--muted); }
+  .seal-bottom {
+    position: absolute; bottom: 28px; left: 28px; right: 28px;
+    background: var(--paper); padding: 22px; border-radius: 14px;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.2);
+  }
+  .seal-bottom .stars { color: var(--ochre); margin-bottom: 6px; }
+  .seal-bottom p { color: var(--ink); font-size: .92rem; font-style: italic; margin-bottom: 8px; }
+  .seal-bottom strong { color: var(--moss-dark); font-size: .88rem; }
+  .why-text p { color: var(--muted); margin-bottom: 16px; font-size: 1.05rem; }
+  .why-text ul { list-style: none; margin-top: 22px; display: grid; gap: 14px; }
+  .why-text li { display: flex; gap: 14px; align-items: flex-start; color: var(--ink); }
+  .check {
+    width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
+    background: var(--moss-dark); color: var(--bg);
+    display: grid; place-items: center; font-size: .9rem; font-weight: 800;
+    margin-top: 2px;
+  }
+  .why-text li strong { display: block; color: var(--bark-dark); font-family: Georgia, serif; font-size: 1.05rem; margin-bottom: 2px; }
+  .why-text li small { color: var(--muted); font-size: .92rem; line-height: 1.45; }
+
+  /* Emergency CTA */
+  .emergency {
+    background:
+      radial-gradient(circle at 80% 30%, rgba(201,138,44,0.4), transparent 55%),
+      linear-gradient(135deg, var(--bark-dark) 0%, #0e0a06 100%);
+    color: var(--bg); padding: 80px 0; position: relative; overflow: hidden;
+  }
+  .emergency::after {
+    content: ""; position: absolute; left: -80px; bottom: -80px;
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(63,90,43,0.4) 0%, transparent 65%);
+  }
+  .emergency-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 50px; align-items: center; position: relative; z-index: 1; }
+  .emergency h2 { font-family: Georgia, serif; font-size: clamp(1.9rem, 3.8vw, 2.6rem); font-weight: 600; line-height: 1.12; }
+  .emergency h2 em { font-style: italic; color: var(--ochre); }
+  .emergency p { color: rgba(255,253,246,0.78); margin-top: 14px; font-size: 1.05rem; max-width: 540px; }
+  .emergency-card {
+    background: rgba(255,253,246,0.06); border: 1px solid rgba(255,253,246,0.12);
+    padding: 28px; border-radius: 20px; backdrop-filter: blur(6px);
+    text-align: center;
+  }
+  .emergency-card .pulse {
+    width: 60px; height: 60px; margin: 0 auto 16px;
+    border-radius: 50%; background: var(--ochre);
+    display: grid; place-items: center; font-size: 1.7rem;
+    box-shadow: 0 0 0 0 rgba(201,138,44,0.6);
+    animation: ring 2s ease-out infinite;
+  }
+  @keyframes ring {
+    0% { box-shadow: 0 0 0 0 rgba(201,138,44,0.6); }
+    70% { box-shadow: 0 0 0 24px rgba(201,138,44,0); }
+    100% { box-shadow: 0 0 0 0 rgba(201,138,44,0); }
+  }
+  .emergency-card strong { display: block; font-size: 1.4rem; font-family: Georgia, serif; color: var(--bg); margin-bottom: 6px; }
+  .emergency-card a { display: inline-block; margin-top: 14px; background: var(--ochre); color: var(--bark-dark); padding: 12px 26px; border-radius: 999px; font-weight: 800; }
+
+  /* Process */
+  .process { background: var(--paper); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; position: relative; }
+  .steps::before {
+    content: ""; position: absolute; top: 30px; left: 10%; right: 10%;
+    height: 2px; background-image: linear-gradient(90deg, var(--moss-light) 50%, transparent 50%);
+    background-size: 14px 2px; z-index: 0;
+  }
+  .step { text-align: center; position: relative; z-index: 1; }
+  .step .num {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--moss-dark);
+    color: var(--moss-dark); font-weight: 800; font-size: 1.3rem;
+    display: grid; place-items: center; margin: 0 auto 18px;
+    font-family: Georgia, serif;
+  }
+  .step h4 { color: var(--bark-dark); margin-bottom: 8px; font-size: 1.05rem; font-family: Georgia, serif; }
+  .step p { color: var(--muted); font-size: .92rem; }
+
+  /* Testimonials */
+  .testimonials { background: var(--bg); }
+  .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .test-card {
+    background: var(--paper); padding: 32px; border-radius: 18px;
+    border: 1px solid var(--line);
+    box-shadow: 0 12px 28px rgba(58,42,28,0.06);
+  }
+  .stars { color: var(--ochre); margin-bottom: 14px; }
+  .test-card p { color: var(--ink); font-style: italic; margin-bottom: 18px; line-height: 1.6; }
+  .test-author { display: flex; align-items: center; gap: 12px; }
+  .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--moss-dark), var(--moss));
+    color: var(--bg); display: grid; place-items: center; font-weight: 800;
+  }
+  .test-author strong { display: block; color: var(--bark-dark); font-family: Georgia, serif; }
+  .test-author small { color: var(--muted); }
+
+  /* Contact */
+  .contact { background: var(--paper); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+  .ci-row { display: flex; gap: 18px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .ci-row:last-child { border-bottom: none; }
+  .ci-icon {
+    width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--moss-dark), var(--moss));
+    color: var(--bg); display: grid; place-items: center; font-size: 1.2rem;
+  }
+  .ci-row strong { display: block; color: var(--bark-dark); margin-bottom: 4px; font-family: Georgia, serif; }
+  .ci-row span, .ci-row a { color: var(--muted); }
+  form.contact-form {
+    background: var(--bg); padding: 36px; border-radius: 20px;
+    border: 1px solid var(--line);
+  }
+  .form-row { margin-bottom: 16px; }
+  .form-row label { font-size: .85rem; font-weight: 700; color: var(--bark-dark); display: block; margin-bottom: 6px; }
+  .form-row input, .form-row textarea, .form-row select {
+    width: 100%; padding: 13px 14px; border: 1px solid var(--line);
+    background: var(--paper); border-radius: 10px;
+    font-family: inherit; font-size: .95rem; color: var(--ink);
+  }
+  .form-row input:focus, .form-row textarea:focus, .form-row select:focus { outline: none; border-color: var(--moss-dark); }
+  .form-row textarea { min-height: 110px; resize: vertical; }
+  .urgency-row {
+    background: rgba(201,138,44,0.12); border: 1px solid rgba(201,138,44,0.3);
+    padding: 14px; border-radius: 10px; margin-bottom: 16px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .urgency-row label { font-size: .92rem; color: var(--bark-dark); display: block; }
+  button.submit {
+    background: var(--moss-dark); color: var(--bg); border: none;
+    padding: 15px 30px; border-radius: 999px;
+    font-weight: 800; cursor: pointer; font-size: .98rem;
+    transition: background .2s;
+  }
+  button.submit:hover { background: var(--bark); }
+
+  footer { background: var(--bark-dark); color: rgba(255,253,246,0.7); padding: 56px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  footer h4 { color: var(--bg); font-size: 1rem; margin-bottom: 14px; font-family: Georgia, serif; }
+  footer ul { list-style: none; }
+  footer li { padding: 5px 0; }
+  footer a { color: rgba(255,253,246,0.7); }
+  footer a:hover { color: var(--ochre); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,253,246,0.1); padding-top: 24px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: .85rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero-grid, .why-grid, .emergency-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
+    .services-grid, .test-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .steps::before { display: none; }
+    nav ul { display: none; }
+    section { padding: 70px 0; }
+    .hero-visual { min-height: 360px; aspect-ratio: auto; }
+  }
+  @media (max-width: 480px) {
+    .container { padding: 0 18px; }
+    .steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="emergency-bar">
+  🌪️ Storm damage or fallen tree? <a href="tel:8159550206">Call (815) 955-0206 — 24/7 emergency response</a>
+</div>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="logo"><span class="logo-mark">🌲</span>Bittmann Tree Service</a>
+    <nav><ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Certified Arborists</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Free Estimate</a></li>
+    </ul></nav>
+    <a class="quote-btn" href="#contact">Free Quote →</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">🌳 ISA Certified · Serving 8998 E 4000 S Rd, St Anne, IL 60964, USA</span>
+      <h1>Expert tree care, <em>safely done</em>, right the first time.</h1>
+      <p class="lead">Bittmann Tree Service is a fully insured, certified-arborist-led tree service in 8998 E 4000 S Rd, St Anne, IL 60964, USA. Removal, trimming, stump grinding, and 24/7 emergency response — we leave your yard cleaner than we found it.</p>
+      <div class="ctas">
+        <a class="btn-primary" href="tel:8159550206">Call (815) 955-0206</a>
+        <a class="btn-outline" href="#services">What we do</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="float-tile ft1">
+        <div class="lbl">Fully insured</div>
+        <div class="val">$2M coverage</div>
+      </div>
+      <div class="float-tile ft3"><div class="dot"></div><strong>Emergency · 24/7</strong></div>
+      <div class="float-tile ft2"><div class="ring">🏆</div><div><strong>ISA Certified</strong><small>Arborist on every job</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="eyebrow">What we do</div>
+    <h2 class="section-title">Everything <em>tree</em>. Nothing else.</h2>
+    <p class="section-lead">We're a tree-only operation — that's why our crews, gear, and experience are all dialed in for it.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🪓</div>
+        <h3>Tree Removal</h3>
+        <p>Safe takedowns from yard trees to large, tight-clearance jobs near houses and power lines. Crane-assisted when needed.</p>
+        <span class="tag">Most requested</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✂️</div>
+        <h3>Pruning &amp; Trimming</h3>
+        <p>Structural pruning, crown thinning, deadwood removal — done to ISA standards so the tree thrives, not just survives.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🪵</div>
+        <h3>Stump Grinding</h3>
+        <p>Grind 6–12" below grade so you can plant grass, install pavers, or just stop tripping over what's left.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⛈️</div>
+        <h3>Storm &amp; Emergency</h3>
+        <p>24/7 emergency response for fallen limbs, split trunks, trees on houses or power lines. Insurance documentation included.</p>
+        <span class="tag">24/7 dispatch</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌱</div>
+        <h3>Health &amp; Diagnostics</h3>
+        <p>Certified arborist assessments for disease, pests, structural concerns, and treatment plans — before you decide to remove.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚚</div>
+        <h3>Hauling &amp; Cleanup</h3>
+        <p>All debris hauled away. Chipped, raked, blown. You won't know we were there — except for the missing tree.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="container why-grid">
+    <div class="why-visual">
+      <div class="seal"><strong>ISA Certified</strong><small>Arborist-led · Fully insured</small></div>
+      <div class="seal-bottom">
+        <div class="stars">★★★★★</div>
+        <p>"They took down a massive oak twelve feet from our roof without a scratch. Clean, careful, and professional."</p>
+        <strong>— Bill T., 8998 E 4000 S Rd, St Anne, IL 60964, USA</strong>
+      </div>
+    </div>
+    <div class="why-text">
+      <div class="eyebrow">Why us</div>
+      <h2 class="section-title">There's a <em>right way</em> to take down a tree.</h2>
+      <p>Anyone with a chainsaw and a truck can call themselves a tree service. Doing it safely — without damaging your home, your yard, or your neighbor's fence — takes training, the right rigging, and full insurance.</p>
+      <ul>
+        <li>
+          <span class="check">✓</span>
+          <div><strong>Certified arborist on every job</strong><small>Not just the estimate. The arborist is on-site, calling the shots.</small></div>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <div><strong>$2M general &amp; workers' comp</strong><small>If anything goes wrong, you're covered — not chasing a contractor's insurance.</small></div>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <div><strong>Proper rigging, not just dropping</strong><small>Pieces are roped down, not dropped, on every job near a structure.</small></div>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <div><strong>We leave it cleaner than we found it</strong><small>Hauled, chipped, blown clean. Your driveway, lawn, and patio look untouched.</small></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="emergency">
+  <div class="container emergency-grid">
+    <div>
+      <div class="eyebrow" style="color: var(--ochre);">24/7 emergency</div>
+      <h2>Tree down? Branch on the roof? <em>Call now</em>.</h2>
+      <p>Storm damage doesn't wait. We dispatch 24/7 across 8998 E 4000 S Rd, St Anne, IL 60964, USA for fallen trees, broken limbs, and anything threatening a structure or power line. We'll be on-site fast and we document everything for your insurance.</p>
+    </div>
+    <div class="emergency-card">
+      <div class="pulse">🚨</div>
+      <strong>Emergency Line</strong>
+      <p style="color: rgba(255,253,246,0.65); font-size: .9rem; margin-bottom: 0;">Answered 24 hours a day</p>
+      <a href="tel:8159550206">📞 (815) 955-0206</a>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="container">
+    <div class="eyebrow">How it works</div>
+    <h2 class="section-title">A clear, <em>no-pressure</em> process.</h2>
+    <p class="section-lead">From the first call to chips in the truck, we make it easy.</p>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h4>Free Estimate</h4><p>On-site walk-through with a certified arborist. Written quote within 24 hours.</p></div>
+      <div class="step"><div class="num">2</div><h4>Scheduled &amp; Permitted</h4><p>We schedule around weather and, where needed, pull the permit and notify utilities.</p></div>
+      <div class="step"><div class="num">3</div><h4>Safe Execution</h4><p>Proper PPE, rigging, and crew. We protect your house, lawn, and neighbor's property.</p></div>
+      <div class="step"><div class="num">4</div><h4>Cleanup &amp; Walkthrough</h4><p>Everything hauled, ground raked, and you sign off only when you're happy.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div class="eyebrow">Reviews</div>
+    <h2 class="section-title">Trusted across <em>8998 E 4000 S Rd, St Anne, IL 60964, USA</em>.</h2>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Bittmann Tree Service took down three storm-damaged trees in one afternoon. Crew was professional, ground was raked clean, and the price was fair. We'll only call them from now on."</p>
+        <div class="test-author"><div class="avatar">DC</div><div><strong>David C.</strong><small>Storm cleanup</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Asked them to assess a sick maple before deciding to remove it. The arborist actually saved it with proper pruning and a treatment plan — they could have just sold me a removal."</p>
+        <div class="test-author"><div class="avatar">PR</div><div><strong>Pam R.</strong><small>Tree health consult</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Called at 11pm after a limb crashed through our fence. They were on-site by 7am, had it cleared by lunch, and helped me file with insurance. Lifesavers."</p>
+        <div class="test-author"><div class="avatar">KS</div><div><strong>Kara S.</strong><small>Emergency response</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">Free estimate</div>
+      <h2 class="section-title">Tell us about <em>the tree</em>.</h2>
+      <p class="section-lead">A certified arborist will visit, walk the property, and send a written quote — usually within 24 hours. No charge, no pressure.</p>
+      <div class="ci-row"><div class="ci-icon">📞</div><div><strong>Call us</strong><a href="tel:8159550206">(815) 955-0206</a></div></div>
+      <div class="ci-row"><div class="ci-icon">✉️</div><div><strong>Email</strong><a href="mailto:"></a></div></div>
+      <div class="ci-row"><div class="ci-icon">📍</div><div><strong>Service area</strong><span>8998 E 4000 S Rd, St Anne, IL 60964, USA</span></div></div>
+      <div class="ci-row"><div class="ci-icon">🕒</div><div><strong>Hours</strong><span>Mon–Sat 7am–6pm · 24/7 emergency line</span></div></div>
+    </div>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks — we will reach out shortly to schedule your free estimate.');">
+      <div class="urgency-row">
+        <input type="checkbox" id="u" style="width: auto; margin-top: 4px;">
+        <label for="u"><strong>This is an emergency.</strong> A tree or limb has fallen or is threatening a structure / power line.</label>
+      </div>
+      <div class="form-row"><label for="n">Name</label><input id="n" required></div>
+      <div class="form-row"><label for="p">Phone</label><input id="p" type="tel" required></div>
+      <div class="form-row"><label for="s">What do you need?</label>
+        <select id="s">
+          <option>Tree removal</option>
+          <option>Trimming / pruning</option>
+          <option>Stump grinding</option>
+          <option>Storm damage / emergency</option>
+          <option>Tree health assessment</option>
+          <option>Not sure — need advice</option>
+        </select>
+      </div>
+      <div class="form-row"><label for="m">Tell us about the tree</label><textarea id="m" placeholder="Size, location near structures, any visible damage…"></textarea></div>
+      <button class="submit" type="submit">Request free estimate →</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color: var(--bg);"><span class="logo-mark">🌲</span>Bittmann Tree Service</div>
+        <p style="margin-top: 14px; max-width: 360px;">Certified, fully insured tree service in 8998 E 4000 S Rd, St Anne, IL 60964, USA. Removal, trimming, stump grinding, and 24/7 emergency response.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="#services">Removal</a></li><li><a href="#services">Trimming</a></li><li><a href="#services">Stump grinding</a></li><li><a href="#services">Emergency</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="tel:8159550206">(815) 955-0206</a></li><li><a href="mailto:"></a></li><li>8998 E 4000 S Rd, St Anne, IL 60964, USA</li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Bittmann Tree Service · ISA Certified · Fully Insured</span><span>Serving 8998 E 4000 S Rd, St Anne, IL 60964, USA</span></div>
+  </div>
+</footer>
+
+</body>
+</html>
