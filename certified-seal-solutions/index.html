@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certified Seal Solutions — notary</title>
+<meta name="description" content="Certified Seal Solutions — professional notary service in 992 Brook Forest Ave, Shorewood, IL 60404, USA. Get in touch: (815) 656-3506.">
+<style>
+  :root {
+    --bg: #fafafb;
+    --white: #ffffff;
+    --indigo: #4f46e5;
+    --indigo-dark: #3730a3;
+    --indigo-light: #818cf8;
+    --indigo-soft: #ede9fe;
+    --amber: #f59e0b;
+    --ink: #0f172a;
+    --muted: #64748b;
+    --line: #e5e7eb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--indigo); text-decoration: none; }
+  .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250,250,251,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+  .logo { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.2rem; color: var(--ink); }
+  .logo-mark {
+    width: 42px; height: 42px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
+    color: white; display: grid; place-items: center; font-size: 1.2rem; font-weight: 800;
+    box-shadow: 0 8px 20px rgba(79,70,229,0.3);
+  }
+  nav ul { list-style: none; display: flex; gap: 28px; }
+  nav a { color: var(--ink); font-weight: 500; transition: color .2s; }
+  nav a:hover { color: var(--indigo); }
+  .call-btn {
+    background: linear-gradient(135deg, var(--indigo), var(--indigo-dark));
+    color: white; padding: 11px 22px; border-radius: 999px;
+    font-weight: 700; box-shadow: 0 8px 18px rgba(79,70,229,0.3);
+    transition: transform .15s;
+  }
+  .call-btn:hover { color: white; transform: translateY(-2px); }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(ellipse at top right, rgba(79,70,229,0.15), transparent 55%),
+      radial-gradient(ellipse at bottom left, rgba(245,158,11,0.12), transparent 55%);
+    padding: 110px 0 130px;
+  }
+  .hero::before {
+    content: ""; position: absolute; top: 100px; left: -100px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, var(--indigo-soft) 0%, transparent 70%);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 60px; align-items: center; position: relative; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--indigo-soft); color: var(--indigo-dark);
+    padding: 7px 16px; border-radius: 999px; font-size: .85rem;
+    font-weight: 600; margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(2.3rem, 5vw, 3.8rem);
+    line-height: 1.05; font-weight: 800; color: var(--ink);
+    margin-bottom: 22px; letter-spacing: -.025em;
+  }
+  .hero h1 .accent {
+    background: linear-gradient(135deg, var(--indigo), var(--amber));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 540px; margin-bottom: 32px; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--indigo), var(--indigo-dark));
+    color: white; padding: 16px 30px; border-radius: 999px;
+    font-weight: 700; box-shadow: 0 14px 30px rgba(79,70,229,0.32);
+    transition: transform .15s;
+  }
+  .btn-primary:hover { color: white; transform: translateY(-2px); }
+  .btn-outline {
+    color: var(--indigo); border: 1.5px solid var(--indigo);
+    padding: 16px 30px; border-radius: 999px; font-weight: 600;
+    transition: background .2s;
+  }
+  .btn-outline:hover { background: var(--indigo); color: white; }
+
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1/1;
+  }
+  .hero-shape {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(245,158,11,0.5), transparent 55%),
+      linear-gradient(135deg, var(--indigo) 0%, var(--indigo-dark) 100%);
+    border-radius: 32px;
+    box-shadow: 0 30px 60px rgba(79,70,229,0.3);
+    transform: rotate(-3deg);
+  }
+  .hero-shape::after {
+    content: "✦"; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); font-size: 9rem; color: rgba(255,255,255,0.15);
+  }
+  .float-stat {
+    position: absolute; background: white;
+    padding: 20px 24px; border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+  }
+  .float-stat strong { display: block; font-size: 1.5rem; color: var(--indigo); font-weight: 800; }
+  .float-stat small { color: var(--muted); font-size: .85rem; }
+  .fs1 { top: 30px; left: -20px; transform: rotate(3deg); }
+  .fs2 { bottom: 40px; right: -20px; transform: rotate(-3deg); }
+  .fs3 {
+    top: 50%; right: 8%; transform: translateY(-50%);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .fs3 .icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--amber); color: white;
+    display: grid; place-items: center; font-size: 1.2rem;
+  }
+
+  /* Sections */
+  section { padding: 100px 0; }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: .15em;
+    font-size: .8rem; font-weight: 700; color: var(--amber);
+    margin-bottom: 12px;
+  }
+  h2.section-title {
+    font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.1;
+    color: var(--ink); margin-bottom: 16px; font-weight: 800; letter-spacing: -.02em;
+  }
+  .section-lead { color: var(--muted); max-width: 640px; font-size: 1.05rem; margin-bottom: 48px; }
+
+  /* Why us */
+  .why { background: white; }
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .why-card {
+    padding: 36px; border-radius: 20px; background: var(--bg);
+    border: 1px solid transparent; transition: all .25s ease;
+  }
+  .why-card:hover {
+    background: white; border-color: var(--line);
+    box-shadow: 0 16px 36px rgba(15,23,42,0.06);
+    transform: translateY(-4px);
+  }
+  .why-icon {
+    width: 58px; height: 58px; border-radius: 16px;
+    background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
+    color: white; display: grid; place-items: center; font-size: 1.6rem;
+    margin-bottom: 22px;
+    box-shadow: 0 10px 24px rgba(79,70,229,0.3);
+  }
+  .why-card h3 { color: var(--ink); margin-bottom: 10px; font-size: 1.18rem; }
+  .why-card p { color: var(--muted); font-size: .98rem; }
+
+  /* About */
+  .about { background: var(--bg); }
+  .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
+  .about-text p { color: var(--muted); margin-bottom: 16px; font-size: 1.05rem; }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    margin-top: 30px;
+  }
+  .stat-box {
+    background: white; padding: 24px; border-radius: 16px;
+    border: 1px solid var(--line);
+  }
+  .stat-box .num {
+    font-size: 2.4rem; font-weight: 900; line-height: 1;
+    background: linear-gradient(135deg, var(--indigo), var(--amber));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .stat-box .lbl { color: var(--muted); font-size: .9rem; margin-top: 6px; }
+  .about-visual {
+    aspect-ratio: 4/5; border-radius: 28px; overflow: hidden;
+    background:
+      radial-gradient(circle at 70% 30%, rgba(245,158,11,0.4), transparent 55%),
+      linear-gradient(135deg, var(--indigo-dark) 0%, var(--indigo) 100%);
+    position: relative;
+    box-shadow: 0 28px 56px rgba(79,70,229,0.2);
+  }
+  .about-visual::after {
+    content: "★"; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); font-size: 10rem; color: rgba(255,255,255,0.1);
+  }
+  .review-pin {
+    position: absolute; bottom: 28px; left: 28px; right: 28px;
+    background: white; padding: 22px; border-radius: 16px;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.15);
+  }
+  .review-pin .stars { color: var(--amber); font-size: 1.05rem; margin-bottom: 8px; }
+  .review-pin p { color: var(--ink); font-style: italic; font-size: .92rem; margin-bottom: 10px; }
+  .review-pin strong { color: var(--indigo); font-size: .9rem; }
+
+  /* Services */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .service-card {
+    background: white; padding: 32px 28px; border-radius: 20px;
+    border: 1px solid var(--line); transition: all .25s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(15,23,42,0.08);
+    border-color: var(--indigo-light);
+  }
+  .service-icon {
+    width: 56px; height: 56px; border-radius: 16px;
+    background: linear-gradient(135deg, var(--indigo-soft), rgba(245,158,11,0.15));
+    color: var(--indigo); display: grid; place-items: center; font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+  .service-card h3 { color: var(--ink); margin-bottom: 10px; font-size: 1.13rem; }
+  .service-card p { color: var(--muted); font-size: .95rem; }
+
+  /* Testimonials */
+  .testimonials { background: white; }
+  .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .test-card {
+    background: var(--bg); padding: 32px; border-radius: 20px;
+    border: 1px solid transparent;
+    transition: all .25s ease;
+  }
+  .test-card:hover { background: white; border-color: var(--line); box-shadow: 0 12px 30px rgba(15,23,42,0.06); }
+  .stars { color: var(--amber); margin-bottom: 14px; }
+  .test-card p { color: var(--ink); font-style: italic; margin-bottom: 18px; line-height: 1.6; }
+  .test-author { display: flex; align-items: center; gap: 12px; }
+  .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
+    color: white; display: grid; place-items: center; font-weight: 700;
+  }
+  .test-author strong { display: block; color: var(--ink); }
+  .test-author small { color: var(--muted); }
+
+  /* CTA strip */
+  .cta-strip {
+    background:
+      radial-gradient(circle at top right, rgba(245,158,11,0.3), transparent 50%),
+      linear-gradient(135deg, var(--indigo) 0%, var(--indigo-dark) 100%);
+    padding: 70px 0; color: white; position: relative; overflow: hidden;
+  }
+  .cta-strip .container { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; position: relative; }
+  .cta-strip h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); max-width: 600px; font-weight: 800; }
+  .btn-light {
+    background: white; color: var(--indigo);
+    padding: 14px 30px; border-radius: 999px; font-weight: 700;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+    transition: transform .15s;
+  }
+  .btn-light:hover { transform: translateY(-2px); }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+  .ci-row { display: flex; gap: 18px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .ci-row:last-child { border-bottom: none; }
+  .ci-icon {
+    width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
+    color: white; display: grid; place-items: center; font-size: 1.2rem;
+  }
+  .ci-row strong { display: block; color: var(--ink); margin-bottom: 4px; }
+  .ci-row span, .ci-row a { color: var(--muted); }
+  form.contact-form {
+    background: white; padding: 36px; border-radius: 22px;
+    border: 1px solid var(--line);
+  }
+  .form-row { margin-bottom: 16px; }
+  .form-row label { font-size: .85rem; font-weight: 600; color: var(--ink); display: block; margin-bottom: 6px; }
+  .form-row input, .form-row textarea {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--line);
+    background: var(--bg); border-radius: 12px; font-family: inherit; font-size: .95rem;
+  }
+  .form-row input:focus, .form-row textarea:focus { outline: none; border-color: var(--indigo); background: white; }
+  .form-row textarea { min-height: 100px; resize: vertical; }
+  button.submit {
+    background: linear-gradient(135deg, var(--indigo), var(--indigo-dark));
+    color: white; border: none; padding: 14px 30px; border-radius: 999px;
+    font-weight: 700; cursor: pointer; font-size: .98rem;
+    box-shadow: 0 12px 26px rgba(79,70,229,0.3);
+  }
+
+  footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 56px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  footer h4 { color: white; font-size: 1rem; margin-bottom: 14px; }
+  footer ul { list-style: none; }
+  footer li { padding: 5px 0; }
+  footer a { color: rgba(255,255,255,0.7); }
+  footer a:hover { color: white; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: .85rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero-grid, .about-grid, .contact-grid, .footer-grid, .why-grid, .services-grid, .test-grid { grid-template-columns: 1fr; }
+    .hero-visual { aspect-ratio: auto; min-height: 320px; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    nav ul { display: none; }
+    section { padding: 70px 0; }
+  }
+  @media (max-width: 480px) {
+    .container { padding: 0 18px; }
+    .about-stats { grid-template-columns: 1fr; }
+    .float-stat { padding: 14px 18px; }
+    .float-stat strong { font-size: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="logo"><span class="logo-mark">✦</span>Certified Seal Solutions</a>
+    <nav><ul>
+      <li><a href="#why">Why us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <a class="call-btn" href="tel:8156563506">📞 (815) 656-3506</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">⭐ Locally owned in 992 Brook Forest Ave, Shorewood, IL 60404, USA</span>
+      <h1>Reliable notary service, <span class="accent">made personal</span>.</h1>
+      <p class="lead">Certified Seal Solutions delivers thoughtful, professional service to 992 Brook Forest Ave, Shorewood, IL 60404, USA and the surrounding area. Honest pricing, quality work, and a team that actually picks up the phone.</p>
+      <div class="ctas">
+        <a class="btn-primary" href="tel:8156563506">Call (815) 656-3506</a>
+        <a class="btn-outline" href="#services">What we do</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-shape"></div>
+      <div class="float-stat fs1"><strong>4.9 ★</strong><small>Average rating</small></div>
+      <div class="float-stat fs2"><strong>10+ yrs</strong><small>Serving 992 Brook Forest Ave, Shorewood, IL 60404, USA</small></div>
+      <div class="float-stat fs3"><div class="icon">✓</div><div><strong>Trusted</strong><small style="display:block">Local · Insured</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="container">
+    <div class="eyebrow">Why us</div>
+    <h2 class="section-title">Three simple promises.</h2>
+    <p class="section-lead">A small list, lived every day. It's why our customers keep coming back.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>Fast response</h3>
+        <p>We answer the phone — and when you message us, you'll hear back the same day, not next week.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💎</div>
+        <h3>Honest pricing</h3>
+        <p>Up-front quotes. No surprise fees, no hidden charges, no high-pressure sales pitches.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <h3>Real guarantee</h3>
+        <p>If you're not happy with the work, we come back and make it right. That's the whole agreement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-text">
+      <div class="eyebrow">About Certified Seal Solutions</div>
+      <h2 class="section-title">Built on referrals. Powered by repeat customers.</h2>
+      <p>Certified Seal Solutions started in 992 Brook Forest Ave, Shorewood, IL 60404, USA with a simple goal: do good work, treat customers like neighbors, and earn business by deserving it.</p>
+      <p>Years later, the standard hasn't changed. Same owners, same care, same commitment to doing right by every customer that calls.</p>
+      <div class="about-stats">
+        <div class="stat-box"><div class="num">10+</div><div class="lbl">Years in business</div></div>
+        <div class="stat-box"><div class="num">2,000+</div><div class="lbl">Happy customers</div></div>
+        <div class="stat-box"><div class="num">4.9★</div><div class="lbl">Average review</div></div>
+        <div class="stat-box"><div class="num">100%</div><div class="lbl">Satisfaction promise</div></div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="review-pin">
+        <div class="stars">★★★★★</div>
+        <p>"Best decision I made all year. Professional, friendly, and the work speaks for itself."</p>
+        <strong>— Jessica M., 992 Brook Forest Ave, Shorewood, IL 60404, USA</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="eyebrow">Services</div>
+    <h2 class="section-title">What we do best.</h2>
+    <p class="section-lead">A full range of notary services tailored to the needs of 992 Brook Forest Ave, Shorewood, IL 60404, USA residents and businesses.</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">🌟</div><h3>Personalized Service</h3><p>Every customer gets a real conversation, a real estimate, and a real point of contact.</p></div>
+      <div class="service-card"><div class="service-icon">🛠️</div><h3>Expert Workmanship</h3><p>Trained, experienced professionals on every job — never green crews, never shortcuts.</p></div>
+      <div class="service-card"><div class="service-icon">📅</div><h3>Flexible Scheduling</h3><p>Evening and weekend appointments available. We work around your life, not the other way around.</p></div>
+      <div class="service-card"><div class="service-icon">💬</div><h3>Clear Communication</h3><p>We keep you in the loop from the first call to the final invoice — no surprises, ever.</p></div>
+      <div class="service-card"><div class="service-icon">🏆</div><h3>Quality Guarantee</h3><p>If you're not 100% satisfied, we'll come back and make it right at no extra charge.</p></div>
+      <div class="service-card"><div class="service-icon">🤝</div><h3>Local Commitment</h3><p>We live and work in 992 Brook Forest Ave, Shorewood, IL 60404, USA. Our reputation is our business, and we earn it daily.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div class="eyebrow">What people say</div>
+    <h2 class="section-title">Reviews from 992 Brook Forest Ave, Shorewood, IL 60404, USA customers.</h2>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"From the first phone call to the finished job, Certified Seal Solutions was professional, communicative, and incredibly fair. I've already recommended them to two neighbors."</p>
+        <div class="test-author"><div class="avatar">JM</div><div><strong>Jessica M.</strong><small>992 Brook Forest Ave, Shorewood, IL 60404, USA resident</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"They actually answered the phone when I called and showed up exactly when they said they would. In 2026 that's nothing short of remarkable. Highly recommend."</p>
+        <div class="test-author"><div class="avatar">RP</div><div><strong>Ryan P.</strong><small>Repeat customer</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Honest pricing, quality work, and the kind of customer service you wish every business had. Found my go-to notary for good."</p>
+        <div class="test-author"><div class="avatar">AT</div><div><strong>Alex T.</strong><small>New customer</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container">
+    <div>
+      <h3>Ready to get started?</h3>
+      <p style="margin-top: 8px; opacity: .9;">Quick response. Free estimates. Honest answers.</p>
+    </div>
+    <a class="btn-light" href="tel:8156563506">Call (815) 656-3506</a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">Get in touch</div>
+      <h2 class="section-title">Let's talk.</h2>
+      <p class="section-lead">Tell us what you need. We'll get back to you the same day with honest answers and a real estimate.</p>
+      <div class="ci-row"><div class="ci-icon">📞</div><div><strong>Phone</strong><a href="tel:8156563506">(815) 656-3506</a></div></div>
+      <div class="ci-row"><div class="ci-icon">✉️</div><div><strong>Email</strong><a href="mailto:"></a></div></div>
+      <div class="ci-row"><div class="ci-icon">📍</div><div><strong>Service area</strong><span>992 Brook Forest Ave, Shorewood, IL 60404, USA</span></div></div>
+      <div class="ci-row"><div class="ci-icon">🕒</div><div><strong>Hours</strong><span>Mon–Sat 8am–6pm</span></div></div>
+    </div>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks — we will be in touch shortly.');">
+      <div class="form-row"><label for="n">Name</label><input id="n" required></div>
+      <div class="form-row"><label for="p">Phone</label><input id="p" type="tel" required></div>
+      <div class="form-row"><label for="e">Email</label><input id="e" type="email"></div>
+      <div class="form-row"><label for="m">How can we help?</label><textarea id="m"></textarea></div>
+      <button class="submit" type="submit">Send message →</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color: white;"><span class="logo-mark">✦</span>Certified Seal Solutions</div>
+        <p style="margin-top: 14px; max-width: 360px;">Locally owned and operated. Proudly serving 992 Brook Forest Ave, Shorewood, IL 60404, USA with reliable notary services.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul><li><a href="#why">Why us</a></li><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="tel:8156563506">(815) 656-3506</a></li><li><a href="mailto:"></a></li><li>992 Brook Forest Ave, Shorewood, IL 60404, USA</li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Certified Seal Solutions. All rights reserved.</span><span>Made with care in 992 Brook Forest Ave, Shorewood, IL 60404, USA</span></div>
+  </div>
+</footer>
+
+</body>
+</html>
