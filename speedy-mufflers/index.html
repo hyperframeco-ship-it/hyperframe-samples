@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speedy Mufflers — Honest auto repair</title>
+<meta name="description" content="Speedy Mufflers — straightforward, fairly-priced auto repair in 1005 S Schuyler Ave, Kankakee, IL 60901, USA. Call (815) 304-5328.">
+<style>
+  :root {
+    --bg: #f4f4f5;
+    --charcoal: #1c1c20;
+    --steel: #2b2d33;
+    --red: #d62828;
+    --red-dark: #a31818;
+    --text: #18181c;
+    --muted: #65676e;
+    --line: #e1e1e4;
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--red); text-decoration: none; }
+  .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--charcoal); color: white;
+    border-bottom: 3px solid var(--red);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+  .logo { display: flex; align-items: center; gap: 12px; font-weight: 900; font-size: 1.2rem; color: white; text-transform: uppercase; letter-spacing: .03em; }
+  .logo-mark {
+    width: 40px; height: 40px; border-radius: 6px;
+    background: var(--red); display: grid; place-items: center; font-size: 1.2rem;
+  }
+  nav ul { list-style: none; display: flex; gap: 28px; }
+  nav a {
+    color: rgba(255,255,255,0.85); font-weight: 600;
+    text-transform: uppercase; font-size: .85rem; letter-spacing: .05em;
+    transition: color .2s;
+  }
+  nav a:hover { color: var(--red); }
+  .call-btn {
+    background: var(--red); color: white; padding: 11px 22px;
+    border-radius: 6px; font-weight: 800;
+    display: inline-flex; align-items: center; gap: 8px;
+    text-transform: uppercase; letter-spacing: .04em; font-size: .9rem;
+    transition: background .2s;
+  }
+  .call-btn:hover { background: var(--red-dark); color: white; }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden;
+    background: var(--charcoal);
+    color: white; padding: 110px 0 130px;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, rgba(214,40,40,0.15) 0%, transparent 50%),
+      repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255,255,255,0.015) 30px, rgba(255,255,255,0.015) 31px);
+    pointer-events: none;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px; align-items: center; position: relative; }
+  .tag {
+    display: inline-block; background: var(--red); padding: 6px 14px;
+    font-size: .78rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: .08em; margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    line-height: 1.02; font-weight: 900; letter-spacing: -.02em;
+    text-transform: uppercase; margin-bottom: 20px;
+  }
+  .hero h1 .red { color: var(--red); }
+  .hero p.lead { font-size: 1.15rem; opacity: .85; max-width: 540px; margin-bottom: 32px; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn-primary {
+    background: var(--red); color: white; padding: 16px 32px;
+    border-radius: 6px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: .04em; font-size: .95rem;
+    transition: background .2s, transform .15s;
+  }
+  .btn-primary:hover { background: var(--red-dark); color: white; transform: translateY(-2px); }
+  .btn-ghost {
+    color: white; padding: 16px 32px; border-radius: 6px;
+    border: 2px solid rgba(255,255,255,0.25); font-weight: 700;
+    text-transform: uppercase; letter-spacing: .04em; font-size: .95rem;
+    transition: border-color .2s, background .2s;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.05); border-color: var(--red); color: var(--red); }
+
+  .hero-card {
+    background: white; color: var(--text);
+    padding: 32px; border-radius: 6px;
+    border-top: 4px solid var(--red);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  }
+  .hero-card h3 {
+    text-transform: uppercase; letter-spacing: .04em; font-size: 1rem;
+    color: var(--charcoal); margin-bottom: 22px;
+  }
+  .row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 0; border-bottom: 1px solid var(--line);
+  }
+  .row:last-child { border-bottom: none; }
+  .row .label { font-size: .9rem; color: var(--muted); }
+  .row .value { font-weight: 800; color: var(--charcoal); }
+
+  /* Sections */
+  section { padding: 96px 0; }
+  .eyebrow {
+    color: var(--red); font-weight: 800; text-transform: uppercase;
+    letter-spacing: .14em; font-size: .8rem; margin-bottom: 12px;
+  }
+  h2.section-title {
+    font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.1;
+    text-transform: uppercase; color: var(--charcoal);
+    letter-spacing: -.01em; margin-bottom: 16px;
+  }
+  .section-lead { color: var(--muted); max-width: 640px; font-size: 1.05rem; margin-bottom: 48px; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: center; }
+  .about-visual {
+    aspect-ratio: 1/1.1; border-radius: 6px; overflow: hidden;
+    background:
+      radial-gradient(circle at 70% 30%, rgba(214,40,40,0.35), transparent 60%),
+      linear-gradient(180deg, var(--charcoal) 0%, #0e0e10 100%);
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  }
+  .about-visual::after {
+    content: "🔧"; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); font-size: 8rem; opacity: .15;
+  }
+  .stamp {
+    position: absolute; top: 24px; right: 24px;
+    background: var(--red); color: white; padding: 12px 18px;
+    border-radius: 4px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: .05em; font-size: .85rem;
+  }
+  .badge-row {
+    position: absolute; bottom: 24px; left: 24px; right: 24px;
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
+    padding: 16px 20px; border-radius: 6px; color: white;
+    border-left: 3px solid var(--red);
+  }
+  .badge-row strong { display: block; font-size: 1.4rem; font-weight: 900; }
+  .badge-row small { color: rgba(255,255,255,0.7); }
+  .about p { color: var(--muted); margin-bottom: 16px; font-size: 1.05rem; }
+  .about ul { list-style: none; margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .about li { padding-left: 26px; position: relative; color: var(--text); font-weight: 600; font-size: .95rem; }
+  .about li::before {
+    content: "▸"; position: absolute; left: 0; color: var(--red); font-weight: 900;
+  }
+
+  /* Services */
+  .services { background: white; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .service-card {
+    background: white; padding: 38px 32px;
+    border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    transition: background .2s;
+  }
+  .service-card:hover { background: var(--bg); }
+  .service-icon { font-size: 2.4rem; margin-bottom: 18px; color: var(--red); }
+  .service-card h3 {
+    color: var(--charcoal); margin-bottom: 10px; font-size: 1.15rem;
+    text-transform: uppercase; letter-spacing: .02em;
+  }
+  .service-card p { color: var(--muted); font-size: .94rem; }
+
+  /* Process / numbered steps */
+  .process { background: var(--bg); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .step {
+    background: white; padding: 30px 24px; border-radius: 8px;
+    border-left: 4px solid var(--red); position: relative;
+  }
+  .step .num {
+    color: var(--red); font-size: 2.4rem; font-weight: 900;
+    line-height: 1; margin-bottom: 12px;
+  }
+  .step h4 {
+    text-transform: uppercase; color: var(--charcoal); font-size: 1rem;
+    margin-bottom: 8px; letter-spacing: .03em;
+  }
+  .step p { color: var(--muted); font-size: .9rem; }
+
+  /* Testimonials */
+  .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .test-card {
+    background: white; padding: 32px; border-radius: 8px;
+    border-top: 3px solid var(--red);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  }
+  .stars { color: var(--red); margin-bottom: 14px; }
+  .test-card p { color: var(--text); font-style: italic; margin-bottom: 18px; }
+  .test-author { display: flex; align-items: center; gap: 12px; }
+  .avatar {
+    width: 44px; height: 44px; border-radius: 4px; background: var(--charcoal);
+    color: white; display: grid; place-items: center; font-weight: 800;
+  }
+  .test-author strong { display: block; color: var(--charcoal); }
+  .test-author small { color: var(--muted); }
+
+  /* Contact */
+  .contact { background: white; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+  .ci-row { display: flex; gap: 18px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .ci-row:last-child { border-bottom: none; }
+  .ci-icon {
+    width: 46px; height: 46px; flex-shrink: 0; background: var(--red);
+    color: white; display: grid; place-items: center; font-size: 1.2rem;
+    border-radius: 4px;
+  }
+  .ci-row strong { display: block; color: var(--charcoal); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .04em; font-size: .85rem; }
+  .ci-row span, .ci-row a { color: var(--muted); }
+  form.contact-form {
+    background: var(--charcoal); color: white;
+    padding: 36px; border-radius: 8px; border-top: 4px solid var(--red);
+  }
+  .form-row { margin-bottom: 16px; }
+  .form-row label {
+    font-size: .78rem; font-weight: 800; color: white; display: block;
+    margin-bottom: 6px; text-transform: uppercase; letter-spacing: .06em;
+  }
+  .form-row input, .form-row textarea {
+    width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+    color: white; padding: 12px 14px; border-radius: 4px;
+    font-family: inherit; font-size: .95rem;
+  }
+  .form-row input:focus, .form-row textarea:focus { outline: none; border-color: var(--red); }
+  .form-row textarea { min-height: 110px; resize: vertical; }
+  button.submit {
+    background: var(--red); color: white; border: none;
+    padding: 14px 28px; border-radius: 4px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: .04em; cursor: pointer;
+    transition: background .2s;
+  }
+  button.submit:hover { background: var(--red-dark); }
+
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.65); padding: 56px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  footer h4 { color: white; text-transform: uppercase; font-size: .95rem; margin-bottom: 14px; letter-spacing: .04em; }
+  footer ul { list-style: none; }
+  footer li { padding: 5px 0; }
+  footer a { color: rgba(255,255,255,0.65); }
+  footer a:hover { color: var(--red); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: .85rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero-grid, .about-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
+    .services-grid, .test-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .about ul { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+    section { padding: 64px 0; }
+    .hero { padding: 70px 0; }
+  }
+  @media (max-width: 480px) {
+    .container { padding: 0 18px; }
+    .steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="logo"><span class="logo-mark">🔧</span>Speedy Mufflers</a>
+    <nav><ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Our Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <a class="call-btn" href="tel:8153045328">📞 (815) 304-5328</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="tag">▸ 1005 S Schuyler Ave, Kankakee, IL 60901, USA · Family Owned</span>
+      <h1>Straight Talk. <span class="red">Fair Prices.</span> Real Mechanics.</h1>
+      <p class="lead">Speedy Mufflers is the auto shop your grandfather wishes he had. Honest diagnostics, fair labor rates, and we'll never sell you a repair you don't need. That's a promise.</p>
+      <div class="ctas">
+        <a class="btn-primary" href="tel:8153045328">Call (815) 304-5328</a>
+        <a class="btn-ghost" href="#contact">Schedule online</a>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <h3>Today's Service</h3>
+      <div class="row"><span class="label">Walk-in oil changes</span><span class="value">Available</span></div>
+      <div class="row"><span class="label">Free brake inspection</span><span class="value">Yes</span></div>
+      <div class="row"><span class="label">Diagnostic fee</span><span class="value">$0 with repair</span></div>
+      <div class="row"><span class="label">Loaner cars</span><span class="value">By appt</span></div>
+      <div class="row"><span class="label">Warranty</span><span class="value">36mo / 36k mi</span></div>
+    </aside>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-visual">
+      <div class="stamp">ASE Certified</div>
+      <div class="badge-row"><strong>2nd-generation shop</strong><small>Serving 1005 S Schuyler Ave, Kankakee, IL 60901, USA for over 25 years</small></div>
+    </div>
+    <div>
+      <div class="eyebrow">About Speedy Mufflers</div>
+      <h2 class="section-title">A repair shop that earns its trust.</h2>
+      <p>We're a family-owned, ASE-certified shop. Every job gets photographed, every quote is in writing, and every estimate explains what's worn, what needs replacing now, and what can safely wait.</p>
+      <p>If something doesn't need fixing, we'll tell you so. That's how we've kept customers — and their kids, and their parents — driving with us for two decades.</p>
+      <ul>
+        <li>ASE Master Certified</li>
+        <li>Photo-documented inspections</li>
+        <li>36-month / 36,000-mile warranty</li>
+        <li>Free loaner with major repairs</li>
+        <li>All makes &amp; models</li>
+        <li>Up-front pricing, every time</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="eyebrow">Services</div>
+    <h2 class="section-title">Bumper to bumper.</h2>
+    <p class="section-lead">Domestic, import, hybrid — if it rolls, we work on it. Every job is backed by our 3-year / 36,000-mile warranty.</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">🛢️</div><h3>Oil &amp; Fluid Service</h3><p>Synthetic and conventional oil, transmission flushes, brake fluid, coolant — done while you wait.</p></div>
+      <div class="service-card"><div class="service-icon">🛞</div><h3>Brakes &amp; Tires</h3><p>Pad and rotor service, tire mounting and balancing, alignment, and TPMS reset.</p></div>
+      <div class="service-card"><div class="service-icon">⚙️</div><h3>Engine Diagnostics</h3><p>Check-engine lights, drivability issues, and complete OBD-II scan with plain-English explanation.</p></div>
+      <div class="service-card"><div class="service-icon">❄️</div><h3>A/C &amp; Heating</h3><p>Full evac-and-recharge, leak detection, blower motor and heater core service.</p></div>
+      <div class="service-card"><div class="service-icon">🔧</div><h3>Suspension &amp; Steering</h3><p>Struts, shocks, control arms, tie rods, and four-wheel alignment for a smooth ride.</p></div>
+      <div class="service-card"><div class="service-icon">🔋</div><h3>Electrical &amp; Battery</h3><p>Battery testing, alternators, starters, and chase-down work for hard-to-find shorts.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="container">
+    <div class="eyebrow">How we work</div>
+    <h2 class="section-title">No surprises. No upsells. Ever.</h2>
+    <p class="section-lead">Four simple steps. Same routine for a $40 oil change or a $4,000 engine job.</p>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h4>Free Inspection</h4><p>Drop off or schedule. We diagnose the issue at no charge if you decide to repair.</p></div>
+      <div class="step"><div class="num">02</div><h4>Written Estimate</h4><p>You get a photo-documented estimate, ranked by what's urgent and what can wait.</p></div>
+      <div class="step"><div class="num">03</div><h4>You Approve</h4><p>Nothing happens until you say go. Pick what to fix now and what to skip.</p></div>
+      <div class="step"><div class="num">04</div><h4>We Repair</h4><p>OEM-quality parts. ASE-certified techs. 3-year warranty on the work.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div class="eyebrow">Reviews</div>
+    <h2 class="section-title">What customers tell their neighbors.</h2>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Took my Tahoe to the dealer who quoted me $2,800 for a 'transmission rebuild.' Speedy Mufflers found a bad sensor and fixed it for $260. I will never go anywhere else."</p>
+        <div class="test-author"><div class="avatar">JC</div><div><strong>Jeff C.</strong><small>Customer since 2019</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"They showed me on a screen exactly what was wrong, what needed to be done now, and what could wait six months. That kind of honesty is rare. Found my shop."</p>
+        <div class="test-author"><div class="avatar">AS</div><div><strong>Angela S.</strong><small>Honda owner</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Brake job done in two hours, fair price, loaner car so I didn't miss a meeting. The team here actually gives a damn — it shows."</p>
+        <div class="test-author"><div class="avatar">MD</div><div><strong>Mike D.</strong><small>Local contractor</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">Visit us</div>
+      <h2 class="section-title">Stop by or schedule online.</h2>
+      <p class="section-lead">Got something making a weird noise? Light on the dash? Just need an oil change? We've got you.</p>
+      <div class="ci-row"><div class="ci-icon">📞</div><div><strong>Phone</strong><a href="tel:8153045328">(815) 304-5328</a></div></div>
+      <div class="ci-row"><div class="ci-icon">✉️</div><div><strong>Email</strong><a href="mailto:"></a></div></div>
+      <div class="ci-row"><div class="ci-icon">📍</div><div><strong>Location</strong><span>1005 S Schuyler Ave, Kankakee, IL 60901, USA</span></div></div>
+      <div class="ci-row"><div class="ci-icon">🕒</div><div><strong>Hours</strong><span>Mon–Fri 7:30am–6pm · Sat 8am–2pm</span></div></div>
+    </div>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Got it — we will be in touch shortly.');">
+      <div class="form-row"><label for="n">Name</label><input id="n" required></div>
+      <div class="form-row"><label for="ph">Phone</label><input id="ph" type="tel" required></div>
+      <div class="form-row"><label for="v">Vehicle (year/make/model)</label><input id="v" placeholder="2018 Toyota Camry"></div>
+      <div class="form-row"><label for="m">What's going on?</label><textarea id="m"></textarea></div>
+      <button class="submit" type="submit">Request appointment →</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color: white;"><span class="logo-mark">🔧</span>Speedy Mufflers</div>
+        <p style="margin-top: 14px; max-width: 360px;">Honest, family-run auto repair in 1005 S Schuyler Ave, Kankakee, IL 60901, USA. ASE-certified. Two generations strong.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="#services">Oil &amp; fluids</a></li><li><a href="#services">Brakes &amp; tires</a></li><li><a href="#services">Diagnostics</a></li><li><a href="#services">A/C service</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="tel:8153045328">(815) 304-5328</a></li><li><a href="mailto:"></a></li><li>1005 S Schuyler Ave, Kankakee, IL 60901, USA</li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Speedy Mufflers · ASE Certified</span><span>1005 S Schuyler Ave, Kankakee, IL 60901, USA</span></div>
+  </div>
+</footer>
+
+</body>
+</html>
