@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Incredibly Detailed Painters — painter</title>
+<meta name="description" content="Incredibly Detailed Painters — interior &amp; exterior painting in 130 Long Beach Road, Montgomery, IL 60538, USA. Crisp lines, real prep, free color consultation. Call (331) 575-3688.">
+<style>
+  :root {
+    --bg: #fbf9f5;
+    --paper: #ffffff;
+    --ink: #14181f;
+    --ink-soft: #2a2f3a;
+    --muted: #5e6573;
+    --line: #e7e3d9;
+    --coral: #ff5b3a;
+    --coral-dark: #d63a1a;
+    --gold: #f5b400;
+    --teal: #1f8a93;
+    --teal-dark: #146069;
+    --plum: #4d2e7a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--coral); text-decoration: none; }
+  .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251,249,245,0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+  .logo { display: flex; align-items: center; gap: 12px; font-weight: 900; font-size: 1.22rem; color: var(--ink); letter-spacing: -.01em; }
+  .logo-mark {
+    width: 44px; height: 44px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--coral) 0%, var(--gold) 70%, var(--teal) 100%);
+    color: white; display: grid; place-items: center; font-size: 1.3rem;
+    box-shadow: 0 8px 20px rgba(255,91,58,0.35);
+    transform: rotate(-4deg);
+  }
+  nav ul { list-style: none; display: flex; gap: 28px; }
+  nav a { color: var(--ink-soft); font-weight: 600; transition: color .2s; }
+  nav a:hover { color: var(--coral); }
+  .quote-btn {
+    background: var(--ink); color: white; padding: 12px 22px;
+    border-radius: 999px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background .2s, transform .15s;
+  }
+  .quote-btn:hover { background: var(--coral); color: white; transform: translateY(-1px); }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(ellipse at top right, rgba(255,91,58,0.18), transparent 55%),
+      radial-gradient(ellipse at 10% 110%, rgba(31,138,147,0.16), transparent 50%),
+      var(--bg);
+    padding: 100px 0 120px;
+  }
+  .hero::before {
+    content: ""; position: absolute; top: 80px; right: -120px;
+    width: 480px; height: 480px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,180,0,0.22) 0%, transparent 70%);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; position: relative; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--ink); color: white;
+    padding: 7px 16px; border-radius: 999px; font-size: .82rem;
+    font-weight: 700; margin-bottom: 24px; letter-spacing: .02em;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.4rem);
+    line-height: 1.02; color: var(--ink); font-weight: 900;
+    margin-bottom: 22px; letter-spacing: -.03em;
+  }
+  .hero h1 .brush {
+    position: relative; display: inline-block; color: white;
+    padding: 0 10px;
+  }
+  .hero h1 .brush::before {
+    content: ""; position: absolute; inset: 6px -4px;
+    background: var(--coral); z-index: -1;
+    border-radius: 4px 18px 6px 12px / 8px 6px 14px 4px;
+    transform: rotate(-1.5deg);
+  }
+  .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 540px; margin-bottom: 32px; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn-primary {
+    background: var(--coral); color: white;
+    padding: 16px 30px; border-radius: 999px;
+    font-weight: 700; transition: background .2s, transform .15s;
+    box-shadow: 0 14px 30px rgba(255,91,58,0.35);
+  }
+  .btn-primary:hover { background: var(--coral-dark); color: white; transform: translateY(-2px); }
+  .btn-outline {
+    color: var(--ink); border: 2px solid var(--ink);
+    padding: 14px 28px; border-radius: 999px; font-weight: 700;
+    transition: background .2s, color .2s;
+  }
+  .btn-outline:hover { background: var(--ink); color: white; }
+
+  .hero-visual {
+    position: relative; aspect-ratio: 1/1.05;
+  }
+  .swatch-stack { position: absolute; inset: 0; }
+  .swatch {
+    position: absolute; border-radius: 22px;
+    box-shadow: 0 24px 50px rgba(20,24,31,0.18);
+  }
+  .swatch.s1 { inset: 6% 18% 28% 6%; background: linear-gradient(160deg, var(--teal), var(--teal-dark)); transform: rotate(-5deg); }
+  .swatch.s2 { inset: 22% 6% 14% 22%; background: linear-gradient(160deg, var(--gold), #d89500); transform: rotate(3deg); }
+  .swatch.s3 { inset: 34% 22% 6% 14%; background: linear-gradient(160deg, var(--coral), var(--coral-dark)); transform: rotate(-2deg); }
+  .swatch::after {
+    content: ""; position: absolute; left: 18px; right: 18px; bottom: 16px;
+    height: 18px; background: rgba(0,0,0,0.18); border-radius: 4px;
+  }
+  .float-card {
+    position: absolute; background: white;
+    padding: 16px 20px; border-radius: 14px;
+    box-shadow: 0 18px 40px rgba(20,24,31,0.18);
+    z-index: 3;
+  }
+  .fc1 { top: 12px; right: -10px; display: flex; align-items: center; gap: 12px; }
+  .fc1 .pal { display: flex; gap: 4px; }
+  .fc1 .dot { width: 14px; height: 14px; border-radius: 50%; }
+  .fc1 strong { display: block; color: var(--ink); font-size: .92rem; }
+  .fc1 small { color: var(--muted); font-size: .78rem; }
+  .fc2 {
+    bottom: 14px; left: -16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .fc2 .ring {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--coral));
+    color: white; display: grid; place-items: center; font-weight: 800;
+  }
+  .fc2 strong { display: block; color: var(--ink); font-size: .95rem; }
+  .fc2 small { color: var(--muted); }
+
+  /* Sections */
+  section { padding: 100px 0; }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: .18em;
+    font-size: .78rem; font-weight: 800; color: var(--coral);
+    margin-bottom: 12px;
+  }
+  h2.section-title {
+    font-size: clamp(2rem, 4.2vw, 2.9rem); line-height: 1.05;
+    color: var(--ink); margin-bottom: 16px; font-weight: 900; letter-spacing: -.025em;
+  }
+  h2.section-title em { font-style: normal; color: var(--coral); }
+  .section-lead { color: var(--muted); max-width: 640px; font-size: 1.05rem; margin-bottom: 48px; }
+
+  /* Services */
+  .services { background: white; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  }
+  .service-card {
+    position: relative; overflow: hidden;
+    background: var(--bg); padding: 34px 28px; border-radius: 20px;
+    border: 1px solid var(--line); transition: all .25s ease;
+  }
+  .service-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: var(--coral); transform: scaleX(0); transform-origin: left;
+    transition: transform .3s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-5px); background: white;
+    box-shadow: 0 22px 44px rgba(20,24,31,0.08);
+    border-color: transparent;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card.alt::before { background: var(--teal); }
+  .service-card.alt2::before { background: var(--gold); }
+  .service-icon {
+    width: 58px; height: 58px; border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255,91,58,0.14), rgba(245,180,0,0.18));
+    color: var(--coral);
+    display: grid; place-items: center; font-size: 1.7rem; margin-bottom: 20px;
+  }
+  .service-card.alt .service-icon { color: var(--teal); background: linear-gradient(135deg, rgba(31,138,147,0.16), rgba(31,138,147,0.06)); }
+  .service-card.alt2 .service-icon { color: #b48400; background: linear-gradient(135deg, rgba(245,180,0,0.2), rgba(245,180,0,0.06)); }
+  .service-card h3 { color: var(--ink); margin-bottom: 10px; font-size: 1.18rem; font-weight: 800; }
+  .service-card p { color: var(--muted); font-size: .96rem; }
+
+  /* Why us — the prep matters */
+  .prep { background: var(--bg); }
+  .prep-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
+  .prep-visual {
+    aspect-ratio: 1/1.1; border-radius: 28px;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(245,180,0,0.5), transparent 50%),
+      linear-gradient(150deg, var(--plum) 0%, #2a1748 100%);
+    position: relative; overflow: hidden;
+    box-shadow: 0 30px 60px rgba(77,46,122,0.3);
+  }
+  .prep-visual::after {
+    content: ""; position: absolute; right: -40px; bottom: -40px;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, var(--coral) 0%, transparent 65%);
+    opacity: .8;
+  }
+  .prep-tag {
+    position: absolute; bottom: 28px; left: 28px; right: 28px;
+    background: white; padding: 22px 26px; border-radius: 18px;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.18); z-index: 2;
+  }
+  .prep-tag strong { display: block; color: var(--ink); font-size: 1.05rem; margin-bottom: 4px; }
+  .prep-tag small { color: var(--muted); }
+  .prep-list { list-style: none; display: grid; gap: 18px; margin-top: 26px; }
+  .prep-list li { display: flex; gap: 18px; align-items: flex-start; }
+  .prep-list .num {
+    width: 42px; height: 42px; border-radius: 12px; flex-shrink: 0;
+    background: var(--ink); color: var(--gold);
+    display: grid; place-items: center; font-weight: 900; font-size: 1.05rem;
+  }
+  .prep-list h4 { color: var(--ink); margin-bottom: 4px; font-size: 1.05rem; }
+  .prep-list p { color: var(--muted); font-size: .96rem; }
+
+  /* Gallery */
+  .gallery { background: white; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .tile {
+    aspect-ratio: 1/1; border-radius: 18px; position: relative; overflow: hidden;
+    box-shadow: 0 12px 28px rgba(20,24,31,0.08);
+  }
+  .tile.t1 { background: linear-gradient(140deg, #e8d5b7 0%, #c9a87a 100%); }
+  .tile.t2 { background: linear-gradient(140deg, var(--teal-dark) 0%, var(--teal) 100%); }
+  .tile.t3 { background: linear-gradient(140deg, #f1e8d6 0%, #d8c594 100%); }
+  .tile.t4 { background: linear-gradient(140deg, var(--coral-dark) 0%, var(--coral) 100%); }
+  .tile.t5 { background: linear-gradient(140deg, #2c3e4f 0%, #1a2530 100%); }
+  .tile.t6 { background: linear-gradient(140deg, #efe7d8 0%, #d6c89e 100%); }
+  .tile.t7 { background: linear-gradient(140deg, var(--plum) 0%, #2a1748 100%); }
+  .tile.t8 { background: linear-gradient(140deg, #f6f0e0 0%, #e0d3a7 100%); }
+  .tile span {
+    position: absolute; left: 14px; bottom: 12px;
+    color: white; font-weight: 700; font-size: .82rem;
+    background: rgba(0,0,0,0.32); padding: 4px 10px; border-radius: 999px;
+    backdrop-filter: blur(6px);
+  }
+  .tile.light span { color: var(--ink); background: rgba(255,255,255,0.6); }
+
+  /* Testimonials */
+  .testimonials { background: var(--bg); }
+  .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .test-card {
+    background: white; padding: 32px; border-radius: 20px;
+    border: 1px solid var(--line);
+    box-shadow: 0 12px 28px rgba(20,24,31,0.05);
+  }
+  .stars { color: var(--gold); margin-bottom: 14px; font-size: 1.05rem; }
+  .test-card p { color: var(--ink); font-style: italic; margin-bottom: 18px; line-height: 1.6; }
+  .test-author { display: flex; align-items: center; gap: 12px; }
+  .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--coral), var(--gold));
+    color: white; display: grid; place-items: center; font-weight: 800;
+  }
+  .test-author strong { display: block; color: var(--ink); }
+  .test-author small { color: var(--muted); }
+
+  /* CTA strip */
+  .cta-strip {
+    background:
+      radial-gradient(circle at 80% 30%, rgba(245,180,0,0.35), transparent 50%),
+      linear-gradient(135deg, var(--ink) 0%, #0a0c11 100%);
+    padding: 80px 0; color: white; position: relative; overflow: hidden;
+  }
+  .cta-strip::after {
+    content: ""; position: absolute; left: -60px; bottom: -60px;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,91,58,0.4) 0%, transparent 65%);
+  }
+  .cta-strip .container { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; position: relative; z-index: 1; }
+  .cta-strip h3 { font-size: clamp(1.6rem, 3vw, 2.3rem); max-width: 620px; font-weight: 900; letter-spacing: -.02em; }
+  .cta-strip p { opacity: .8; margin-top: 8px; }
+  .btn-light {
+    background: var(--coral); color: white;
+    padding: 16px 32px; border-radius: 999px; font-weight: 800;
+    box-shadow: 0 14px 30px rgba(255,91,58,0.45);
+    transition: transform .15s;
+  }
+  .btn-light:hover { color: white; transform: translateY(-2px); }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+  .ci-row { display: flex; gap: 18px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .ci-row:last-child { border-bottom: none; }
+  .ci-icon {
+    width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--coral), var(--gold));
+    color: white; display: grid; place-items: center; font-size: 1.2rem;
+  }
+  .ci-row strong { display: block; color: var(--ink); margin-bottom: 4px; }
+  .ci-row span, .ci-row a { color: var(--muted); }
+  form.contact-form {
+    background: white; padding: 36px; border-radius: 22px;
+    border: 1px solid var(--line);
+    box-shadow: 0 16px 36px rgba(20,24,31,0.05);
+  }
+  .form-row { margin-bottom: 16px; }
+  .form-row label { font-size: .85rem; font-weight: 700; color: var(--ink); display: block; margin-bottom: 6px; }
+  .form-row input, .form-row textarea, .form-row select {
+    width: 100%; padding: 13px 14px; border: 1px solid var(--line);
+    background: var(--bg); border-radius: 12px; font-family: inherit; font-size: .95rem;
+  }
+  .form-row input:focus, .form-row textarea:focus, .form-row select:focus { outline: none; border-color: var(--coral); background: white; }
+  .form-row textarea { min-height: 110px; resize: vertical; }
+  button.submit {
+    background: var(--ink); color: white; border: none;
+    padding: 15px 30px; border-radius: 999px;
+    font-weight: 800; cursor: pointer; font-size: .98rem;
+    transition: background .2s;
+  }
+  button.submit:hover { background: var(--coral); }
+
+  footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 56px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  footer h4 { color: white; font-size: 1rem; margin-bottom: 14px; }
+  footer ul { list-style: none; }
+  footer li { padding: 5px 0; }
+  footer a { color: rgba(255,255,255,0.7); }
+  footer a:hover { color: var(--coral); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: .85rem;
+  }
+
+  @media (max-width: 880px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .hero-grid, .prep-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
+    .services-grid, .test-grid { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+    section { padding: 70px 0; }
+    .hero-visual { min-height: 360px; }
+  }
+  @media (max-width: 480px) {
+    .container { padding: 0 18px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="logo"><span class="logo-mark">✺</span>Incredibly Detailed Painters</a>
+    <nav><ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#prep">Our Prep</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <a class="quote-btn" href="#contact">Free Color Quote →</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">🎨 Locally Owned · 130 Long Beach Road, Montgomery, IL 60538, USA</span>
+      <h1>Walls that look <span class="brush">flawless</span> for years, not weeks.</h1>
+      <p class="lead">Incredibly Detailed Painters is a full-service interior and exterior painting crew serving 130 Long Beach Road, Montgomery, IL 60538, USA. Real surface prep, clean lines, premium paint — and we leave your home cleaner than we found it.</p>
+      <div class="ctas">
+        <a class="btn-primary" href="tel:3315753688">Call (331) 575-3688</a>
+        <a class="btn-outline" href="#services">See services</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="swatch-stack">
+        <div class="swatch s1"></div>
+        <div class="swatch s2"></div>
+        <div class="swatch s3"></div>
+      </div>
+      <div class="float-card fc1">
+        <div class="pal">
+          <span class="dot" style="background:#1f8a93"></span>
+          <span class="dot" style="background:#f5b400"></span>
+          <span class="dot" style="background:#ff5b3a"></span>
+        </div>
+        <div><strong>Free color consult</strong><small>Included with every quote</small></div>
+      </div>
+      <div class="float-card fc2">
+        <div class="ring">5★</div>
+        <div><strong>200+ reviews</strong><small>Google &amp; Nextdoor</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="eyebrow">What we paint</div>
+    <h2 class="section-title">Interior, exterior, and <em>everything between</em>.</h2>
+    <p class="section-lead">One crew that handles the whole job — from cabinets to two-story exteriors. No subcontractors, no surprises.</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">🏠</div><h3>Interior Painting</h3><p>Living rooms, bedrooms, ceilings, trim, hallways — premium washable finishes that stand up to real life.</p></div>
+      <div class="service-card alt"><div class="service-icon">🌤️</div><h3>Exterior Painting</h3><p>Siding, stucco, brick, trim, doors. Power-wash, scrape, prime, and paint — done in the right weather window.</p></div>
+      <div class="service-card alt2"><div class="service-icon">🪟</div><h3>Cabinets &amp; Doors</h3><p>Spray-finish kitchen cabinets, vanities, and interior doors. Factory-smooth, no brush marks.</p></div>
+      <div class="service-card"><div class="service-icon">🧱</div><h3>Drywall Repair</h3><p>Patch holes, fix water stains, retexture, and blend so you never see where the damage was.</p></div>
+      <div class="service-card alt"><div class="service-icon">🛋️</div><h3>Decks &amp; Fences</h3><p>Stain, seal, or solid-color. We strip the old finish and prep the wood so the new coat actually lasts.</p></div>
+      <div class="service-card alt2"><div class="service-icon">🏢</div><h3>Commercial &amp; Offices</h3><p>After-hours and weekend painting for offices, retail, and rentals — minimal downtime, full coverage.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="prep" id="prep">
+  <div class="container prep-grid">
+    <div class="prep-visual">
+      <div class="prep-tag"><strong>The prep is the paint job.</strong><small>If we skip it, you'll see it in 18 months.</small></div>
+    </div>
+    <div>
+      <div class="eyebrow">Our process</div>
+      <h2 class="section-title">Why our paint <em>stays put</em>.</h2>
+      <p style="color: var(--muted); margin-bottom: 8px;">Most painting failures aren't paint failures — they're prep failures. Here's what every Incredibly Detailed Painters job includes before a single coat goes on:</p>
+      <ul class="prep-list">
+        <li>
+          <div class="num">1</div>
+          <div><h4>Wash &amp; degloss</h4><p>Walls cleaned, glossy surfaces sanded so paint actually bonds — not just sits on top.</p></div>
+        </li>
+        <li>
+          <div class="num">2</div>
+          <div><h4>Patch &amp; caulk</h4><p>Every nail hole, hairline crack, and gap filled. Trim re-caulked where it pulled away.</p></div>
+        </li>
+        <li>
+          <div class="num">3</div>
+          <div><h4>Prime where it counts</h4><p>Stain-blocking primer on water marks, bleeding wood, and any drastic color change.</p></div>
+        </li>
+        <li>
+          <div class="num">4</div>
+          <div><h4>Two true coats</h4><p>Cut in, roll, inspect, second coat. No "one-coat" shortcuts on real jobs.</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="eyebrow">Recent work</div>
+    <h2 class="section-title">A look at our <em>recent finishes</em>.</h2>
+    <p class="section-lead">Color palettes and projects from around 130 Long Beach Road, Montgomery, IL 60538, USA.</p>
+    <div class="gallery-grid">
+      <div class="tile t1"><span>Warm Beige · Living Room</span></div>
+      <div class="tile t2"><span>Deep Teal · Accent Wall</span></div>
+      <div class="tile t3 light"><span>Soft Cream · Trim &amp; Doors</span></div>
+      <div class="tile t4"><span>Sunset Coral · Front Door</span></div>
+      <div class="tile t5"><span>Charcoal · Exterior</span></div>
+      <div class="tile t6 light"><span>Linen · Hallway</span></div>
+      <div class="tile t7"><span>Plum · Bedroom Feature</span></div>
+      <div class="tile t8 light"><span>Champagne · Cabinets</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div class="eyebrow">Reviews</div>
+    <h2 class="section-title">What <em>neighbors</em> are saying.</h2>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Incredibly Detailed Painters painted the entire interior of our house and the result is gorgeous. The lines along the trim are razor-sharp. We've already booked them for the exterior."</p>
+        <div class="test-author"><div class="avatar">MR</div><div><strong>Megan R.</strong><small>Whole-house interior</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Spray-finished our kitchen cabinets and they look brand new — better than new, honestly. Zero brush marks, zero drips, finished a day early."</p>
+        <div class="test-author"><div class="avatar">JT</div><div><strong>Jordan T.</strong><small>Cabinet refinish</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Three years after they painted our exterior it still looks like the day they finished. That alone tells you they did the prep right."</p>
+        <div class="test-author"><div class="avatar">SK</div><div><strong>Sam K.</strong><small>Exterior, repeat customer</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container">
+    <div>
+      <h3>Bring in the color. Skip the chaos.</h3>
+      <p>Free in-home color consultation with every quote.</p>
+    </div>
+    <a class="btn-light" href="tel:3315753688">Call (331) 575-3688</a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">Free estimate</div>
+      <h2 class="section-title">Tell us about your <em>project</em>.</h2>
+      <p class="section-lead">Send a few photos and the rooms you're thinking about. We'll come out for a free consult and a written quote — no pressure either way.</p>
+      <div class="ci-row"><div class="ci-icon">📞</div><div><strong>Call us</strong><a href="tel:3315753688">(331) 575-3688</a></div></div>
+      <div class="ci-row"><div class="ci-icon">✉️</div><div><strong>Email</strong><a href="mailto:"></a></div></div>
+      <div class="ci-row"><div class="ci-icon">📍</div><div><strong>Service area</strong><span>130 Long Beach Road, Montgomery, IL 60538, USA</span></div></div>
+      <div class="ci-row"><div class="ci-icon">🕒</div><div><strong>Hours</strong><span>Mon–Sat 7am–6pm</span></div></div>
+    </div>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks — we will reach out shortly to schedule your free color consult.');">
+      <div class="form-row"><label for="n">Name</label><input id="n" required></div>
+      <div class="form-row"><label for="p">Phone</label><input id="p" type="tel" required></div>
+      <div class="form-row"><label for="s">What are we painting?</label>
+        <select id="s">
+          <option>Interior — single room</option>
+          <option>Interior — whole house</option>
+          <option>Exterior — house</option>
+          <option>Kitchen cabinets</option>
+          <option>Deck or fence</option>
+          <option>Commercial space</option>
+          <option>Not sure — need advice</option>
+        </select>
+      </div>
+      <div class="form-row"><label for="m">Project details</label><textarea id="m" placeholder="Rooms, colors you're considering, timing…"></textarea></div>
+      <button class="submit" type="submit">Request free quote →</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color: white;"><span class="logo-mark">✺</span>Incredibly Detailed Painters</div>
+        <p style="margin-top: 14px; max-width: 360px;">Interior &amp; exterior painting in 130 Long Beach Road, Montgomery, IL 60538, USA. Locally owned. Fully insured. Built on referrals and finishes that last.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="#services">Interior</a></li><li><a href="#services">Exterior</a></li><li><a href="#services">Cabinets</a></li><li><a href="#services">Decks &amp; Fences</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="tel:3315753688">(331) 575-3688</a></li><li><a href="mailto:"></a></li><li>130 Long Beach Road, Montgomery, IL 60538, USA</li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Incredibly Detailed Painters · Licensed &amp; Insured</span><span>Serving 130 Long Beach Road, Montgomery, IL 60538, USA</span></div>
+  </div>
+</footer>
+
+</body>
+</html>
